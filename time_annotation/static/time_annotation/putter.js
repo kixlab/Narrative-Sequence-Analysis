@@ -42,7 +42,7 @@ load_text = function(){
     },
     dataType: 'json',
     success: function(data){
-      $("#title").text(data.novel_name+" - Timeline");
+      $("#title").text(data.novel_name+" - Timeline. (top:earlier / bottom:later)");
       important_blocks = JSON.parse(data.important_blocks);
       subject_block = JSON.parse(data.subject_block);
       console.log(important_blocks)
