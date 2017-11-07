@@ -37,7 +37,7 @@ load_text = function(){
   $.ajax({
     url: '/time_annotation/retrieve_event_in_same_group_brute',
     data:{
-      "text_name": "Hard feelings",
+      "text_name": "Old Boy",
       //"text_id" : 27,
     },
     dataType: 'json',
