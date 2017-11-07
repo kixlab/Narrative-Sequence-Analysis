@@ -279,7 +279,7 @@ def retrieve_important_event_in_same_group(request):
     novel = Novel.objects.get(Novel_title = text_name)
     dicts = extract_important_blocks(novel)
     comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
-    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote')
+    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote') #.filter(id_vote__lt = 3).order_by('?')
     print(comparison_sets)
     if comparison_sets[0]['id_vote'] < 3:
         comparison_set_id=comparison_sets[0]['_id']
@@ -325,10 +325,11 @@ def retrieve_event_in_same_group_brute(request):
                 id_ = id_ + 1
         comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
 
-    comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt = 3).order_by('?')
+    comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote', '?')
     print(comparison_sets)
     if comparison_sets[0]['id_vote'] < 3:
         comparison_set_id=comparison_sets[0]['_id']
+        print(comparison_sets[0]['id_vote'])
     print(comparison_set_id)
     comparison_set = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = comparison_set_id)[0]
     print(comparison_set)
