@@ -194,3 +194,528 @@
 [07/Nov/2017 01:23:00] "GET /static/time_annotation/brute_comparison.js HTTP/1.1" 200 4583
 [07/Nov/2017 01:23:01] "GET /time_annotation/retrieve_event_in_same_group_brute?text_name=Old%20Boy HTTP/1.1" 301 0
 [07/Nov/2017 01:23:01] "GET /time_annotation/retrieve_event_in_same_group_brute/?text_name=Old%20Boy HTTP/1.1" 200 2434
+[07/Nov/2017 13:22:02] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%20quej4f%20put%203%20in%202&worker_id=quej4f HTTP/1.1" 301 0
+[07/Nov/2017 13:22:03] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%20quej4f%20put%203%20in%202&worker_id=quej4f HTTP/1.1" 200 2
+[07/Nov/2017 13:22:42] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:22:42] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:22:42] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:22:43] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:22:43] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:22:44] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:23:33] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:23:36] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:23:36] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:23:36] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:23:37] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:23:37] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:23:40] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 4371
+[07/Nov/2017 13:23:40] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:23:45] "POST /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 3301
+[07/Nov/2017 13:23:46] "POST /admin/time_annotation/work_result_putter/ HTTP/1.1" 302 0
+[07/Nov/2017 13:23:46] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 3307
+[07/Nov/2017 13:23:47] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:23:50] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%20pcyl3e%20put%203%20in%202&worker_id=pcyl3e HTTP/1.1" 301 0
+[07/Nov/2017 13:23:50] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 3171
+[07/Nov/2017 13:23:51] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:23:51] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%20pcyl3e%20put%203%20in%202&worker_id=pcyl3e HTTP/1.1" 200 2
+[07/Nov/2017 13:23:55] "GET /admin/time_annotation/time_block_position_vote/ HTTP/1.1" 200 23594
+[07/Nov/2017 13:23:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:23:59] "POST /admin/time_annotation/time_block_position_vote/ HTTP/1.1" 200 20800
+[07/Nov/2017 13:24:02] "POST /admin/time_annotation/time_block_position_vote/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:02] "GET /admin/time_annotation/time_block_position_vote/ HTTP/1.1" 200 3363
+[07/Nov/2017 13:24:02] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:05] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:24:09] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:24:09] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:11] "GET /admin/time_annotation/time_block/19/change/ HTTP/1.1" 200 9525
+[07/Nov/2017 13:24:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:22] "POST /admin/time_annotation/time_block/19/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:22] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:24:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:24] "GET /admin/time_annotation/time_block/19/change/ HTTP/1.1" 200 9526
+[07/Nov/2017 13:24:24] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:26] "POST /admin/time_annotation/time_block/19/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:26] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:24:26] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:27] "GET /admin/time_annotation/time_block/20/change/ HTTP/1.1" 200 9390
+[07/Nov/2017 13:24:27] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:30] "POST /admin/time_annotation/time_block/20/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:30] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:24:30] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:32] "GET /admin/time_annotation/time_block/21/change/ HTTP/1.1" 200 9681
+[07/Nov/2017 13:24:32] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:43] "POST /admin/time_annotation/time_block/21/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:43] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:24:43] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:45] "GET /admin/time_annotation/time_block/22/change/ HTTP/1.1" 200 9267
+[07/Nov/2017 13:24:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:55] "POST /admin/time_annotation/time_block/22/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:55] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:24:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:57] "GET /admin/time_annotation/time_block/23/change/ HTTP/1.1" 200 8804
+[07/Nov/2017 13:24:57] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:24:59] "POST /admin/time_annotation/time_block/23/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:24:59] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:24:59] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:00] "GET /admin/time_annotation/time_block/24/change/ HTTP/1.1" 200 8721
+[07/Nov/2017 13:25:00] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:04] "POST /admin/time_annotation/time_block/24/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:25:04] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:25:04] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:05] "GET /admin/time_annotation/time_block/25/change/ HTTP/1.1" 200 8492
+[07/Nov/2017 13:25:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:08] "POST /admin/time_annotation/time_block/25/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:25:08] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:25:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:10] "GET /admin/time_annotation/time_block/26/change/ HTTP/1.1" 200 8706
+[07/Nov/2017 13:25:10] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:11] "POST /admin/time_annotation/time_block/26/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:25:12] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:25:12] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:13] "GET /admin/time_annotation/time_block/27/change/ HTTP/1.1" 200 9543
+[07/Nov/2017 13:25:13] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:17] "POST /admin/time_annotation/time_block/27/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:25:17] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:25:17] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:18] "GET /admin/time_annotation/time_block/28/change/ HTTP/1.1" 200 8973
+[07/Nov/2017 13:25:18] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:22] "POST /admin/time_annotation/time_block/28/change/ HTTP/1.1" 302 0
+[07/Nov/2017 13:25:22] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6540
+[07/Nov/2017 13:25:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:24] "GET /admin/time_annotation/time_block/27/change/ HTTP/1.1" 200 9544
+[07/Nov/2017 13:25:24] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:26] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:27] "GET /admin/time_annotation/time_block/26/change/ HTTP/1.1" 200 8706
+[07/Nov/2017 13:25:27] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:28] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:30] "GET /admin/time_annotation/time_block/25/change/ HTTP/1.1" 200 8492
+[07/Nov/2017 13:25:30] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:31] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:33] "GET /admin/time_annotation/time_block/24/change/ HTTP/1.1" 200 8722
+[07/Nov/2017 13:25:33] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:34] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:35] "GET /admin/time_annotation/time_block/23/change/ HTTP/1.1" 200 8804
+[07/Nov/2017 13:25:35] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:37] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:38] "GET /admin/time_annotation/time_block/22/change/ HTTP/1.1" 200 9268
+[07/Nov/2017 13:25:38] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:40] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:41] "GET /admin/time_annotation/time_block/21/change/ HTTP/1.1" 200 9682
+[07/Nov/2017 13:25:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:42] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:44] "GET /admin/time_annotation/time_block/20/change/ HTTP/1.1" 200 9390
+[07/Nov/2017 13:25:44] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:45] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:25:47] "GET /admin/time_annotation/time_block/19/change/ HTTP/1.1" 200 9526
+[07/Nov/2017 13:25:47] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:25:48] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:26:33] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:26:33] "GET /static/time_annotation/putter.js HTTP/1.1" 304 0
+[07/Nov/2017 13:26:34] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2431
+[07/Nov/2017 13:26:38] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:26:40] "GET /admin/time_annotation/time_block_position_vote/ HTTP/1.1" 200 23594
+[07/Nov/2017 13:26:40] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:28:29] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:29] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:30] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:31] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:31] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:32] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2699
+[07/Nov/2017 13:28:37] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:37] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:37] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:37] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:37] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:37] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:38] "GET /favicon.ico HTTP/1.1" 404 2099
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:38] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:38] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:38] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:39] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:39] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:39] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:39] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:39] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2439
+[07/Nov/2017 13:28:39] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2431
+[07/Nov/2017 13:28:41] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:41] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:41] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3245
+[07/Nov/2017 13:28:41] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:41] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:42] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:42] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:43] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3383
+[07/Nov/2017 13:28:43] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:43] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:43] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:44] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:44] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:44] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:44] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:44] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:44] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:45] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:45] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:45] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:45] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2431
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:45] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:45] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:46] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3383
+[07/Nov/2017 13:28:46] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:47] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:48] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:48] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2699
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:49] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:49] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:49] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3235
+[07/Nov/2017 13:28:50] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:50] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:50] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:28:51] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:51] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:28:51] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3383
+[07/Nov/2017 13:28:52] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:28:52] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:52] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:28:52] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:28:53] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2699
+Not Found: /favicon.ico
+[07/Nov/2017 13:28:53] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:29:25] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:29:26] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:29:26] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:29:27] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:29:27] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 4371
+[07/Nov/2017 13:29:27] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:29:27] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:29:28] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2699
+Not Found: /favicon.ico
+[07/Nov/2017 13:29:28] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:29:41] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:29:45] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:29:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:29:47] "GET /admin/time_annotation/time_block/22/change/ HTTP/1.1" 200 9268
+[07/Nov/2017 13:29:47] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:29:48] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=2&important_seq_num=1&work_description=Worker%20hfv5z%20put%202%20in%201&worker_id=hfv5z HTTP/1.1" 301 0
+[07/Nov/2017 13:29:49] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=7&important_seq_num=1&work_description=Worker%20kr9gsr%20put%207%20in%201&worker_id=kr9gsr HTTP/1.1" 301 0
+[07/Nov/2017 13:29:49] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=2&important_seq_num=1&work_description=Worker%20hfv5z%20put%202%20in%201&worker_id=hfv5z HTTP/1.1" 200 2
+[07/Nov/2017 13:29:50] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=7&important_seq_num=1&work_description=Worker%20kr9gsr%20put%207%20in%201&worker_id=kr9gsr HTTP/1.1" 200 2
+[07/Nov/2017 13:29:52] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=9&important_seq_num=3&work_description=Worker%20feqhi%20put%209%20in%203&worker_id=feqhi HTTP/1.1" 301 0
+[07/Nov/2017 13:29:52] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=2&important_seq_num=3&work_description=Worker%20jhxzd%20put%202%20in%203&worker_id=jhxzd HTTP/1.1" 301 0
+[07/Nov/2017 13:29:53] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=9&important_seq_num=3&work_description=Worker%20feqhi%20put%209%20in%203&worker_id=feqhi HTTP/1.1" 200 2
+[07/Nov/2017 13:29:53] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=2&important_seq_num=3&work_description=Worker%20jhxzd%20put%202%20in%203&worker_id=jhxzd HTTP/1.1" 200 2
+[07/Nov/2017 13:29:56] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=9&important_seq_num=2&work_description=Worker%205t92t4%20put%209%20in%202&worker_id=5t92t4 HTTP/1.1" 301 0
+[07/Nov/2017 13:29:57] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=9&important_seq_num=2&work_description=Worker%205t92t4%20put%209%20in%202&worker_id=5t92t4 HTTP/1.1" 200 2
+[07/Nov/2017 13:30:27] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=7&important_seq_num=2&work_description=Worker%20p9ukko%20put%207%20in%202&worker_id=p9ukko HTTP/1.1" 301 0
+[07/Nov/2017 13:30:27] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=7&important_seq_num=2&work_description=Worker%20p9ukko%20put%207%20in%202&worker_id=p9ukko HTTP/1.1" 200 2
+[07/Nov/2017 13:30:39] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:30:39] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:30:39] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:30:40] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:30:40] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:30:41] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3245
+[07/Nov/2017 13:30:43] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:30:44] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:30:44] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 5941
+[07/Nov/2017 13:30:44] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:30:46] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:30:47] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:30:47] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:30:48] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3235
+[07/Nov/2017 13:30:52] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:30:53] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:30:53] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:30:54] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:30:54] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:30:54] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2439
+[07/Nov/2017 13:31:04] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 5941
+[07/Nov/2017 13:31:04] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:31:07] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 5941
+[07/Nov/2017 13:31:07] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:31:15] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 5941
+[07/Nov/2017 13:31:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:31:19] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:31:19] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:31:20] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:31:21] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:31:21] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2439
+[07/Nov/2017 13:31:26] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=5&important_seq_num=1&work_description=Worker%20hosh%20put%205%20in%201&worker_id=hosh HTTP/1.1" 301 0
+[07/Nov/2017 13:31:31] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=5&important_seq_num=1&work_description=Worker%20hosh%20put%205%20in%201&worker_id=hosh HTTP/1.1" 200 2
+[07/Nov/2017 13:31:41] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=9&important_seq_num=2&work_description=Worker%20wzrjaw%20put%209%20in%202&worker_id=wzrjaw HTTP/1.1" 301 0
+[07/Nov/2017 13:31:41] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=9&important_seq_num=2&work_description=Worker%20wzrjaw%20put%209%20in%202&worker_id=wzrjaw HTTP/1.1" 200 2
+[07/Nov/2017 13:31:41] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=0&important_seq_num=1&work_description=Worker%20vz9wv8%20put%200%20in%201&worker_id=vz9wv8 HTTP/1.1" 301 0
+[07/Nov/2017 13:31:43] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=5&important_seq_num=1&work_description=Worker%20b7bwe8%20put%205%20in%201&worker_id=b7bwe8 HTTP/1.1" 301 0
+[07/Nov/2017 13:31:43] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=0&important_seq_num=1&work_description=Worker%20vz9wv8%20put%200%20in%201&worker_id=vz9wv8 HTTP/1.1" 200 2
+[07/Nov/2017 13:31:44] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=5&important_seq_num=1&work_description=Worker%20b7bwe8%20put%205%20in%201&worker_id=b7bwe8 HTTP/1.1" 200 2
+[07/Nov/2017 13:31:44] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 6990
+[07/Nov/2017 13:31:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:31:45] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:31:46] "GET /static/time_annotation/putter.js HTTP/1.1" 304 0
+[07/Nov/2017 13:31:46] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3245
+[07/Nov/2017 13:32:05] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:32:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:32:06] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=2&important_seq_num=3&work_description=Worker%207gr6i%20put%202%20in%203&worker_id=7gr6i HTTP/1.1" 301 0
+[07/Nov/2017 13:32:07] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=2&important_seq_num=3&work_description=Worker%207gr6i%20put%202%20in%203&worker_id=7gr6i HTTP/1.1" 200 2
+[07/Nov/2017 13:32:08] "GET /admin/time_annotation/time_block/24/change/ HTTP/1.1" 200 8722
+[07/Nov/2017 13:32:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:32:13] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=8&important_seq_num=1&work_description=Worker%20r50za%20put%208%20in%201&worker_id=r50za HTTP/1.1" 301 0
+[07/Nov/2017 13:32:14] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=8&important_seq_num=1&work_description=Worker%20r50za%20put%208%20in%201&worker_id=r50za HTTP/1.1" 200 2
+[07/Nov/2017 13:32:18] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:32:18] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:32:21] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 7512
+[07/Nov/2017 13:32:21] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:32:35] "GET /admin/time_annotation/time_block/21/change/ HTTP/1.1" 200 9681
+[07/Nov/2017 13:32:35] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:32:38] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=8&important_seq_num=1&work_description=Worker%20f4fti%20put%208%20in%201&worker_id=f4fti HTTP/1.1" 301 0
+[07/Nov/2017 13:32:39] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=8&important_seq_num=1&work_description=Worker%20f4fti%20put%208%20in%201&worker_id=f4fti HTTP/1.1" 200 2
+[07/Nov/2017 13:32:41] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:32:44] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 7773
+[07/Nov/2017 13:32:44] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:32:54] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:32:54] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:32:54] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:32:55] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:32:55] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:32:55] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:32:56] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:32:56] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=0&important_seq_num=1&work_description=Worker%20ir1t6f%20put%200%20in%201&worker_id=ir1t6f HTTP/1.1" 301 0
+[07/Nov/2017 13:32:58] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=0&important_seq_num=1&work_description=Worker%20ir1t6f%20put%200%20in%201&worker_id=ir1t6f HTTP/1.1" 200 2
+[07/Nov/2017 13:32:59] "GET /admin/time_annotation/time_block/27/change/ HTTP/1.1" 200 9544
+[07/Nov/2017 13:32:59] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:33:08] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:33:11] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:33:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:33:15] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8035
+[07/Nov/2017 13:33:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:33:24] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:33:24] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:33:24] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:33:25] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:33:25] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 07, 2017 - 13:21:53
+Django version 1.11.5, using settings 'Narrative_Annotations.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+min num 1
+2
+<QuerySet [{'time_block_position_vote__vote__max': 1, '_id': 3}, {'time_block_position_vote__vote__max': 2, '_id': 7}]>
+min num 1
+2
+<QuerySet [{'time_block_position_vote__vote__max': 1, '_id': 3}, {'time_block_position_vote__vote__max': 2, '_id': 7}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 7
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 2}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 7}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 0, '_id': 9}]>
+min num 4
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 1, '_id': 2}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 1, '_id': 9}]>
+min num 4
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 1, '_id': 2}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 1, '_id': 9}]>
+min num 4
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 1, '_id': 2}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 1, '_id': 9}]>
+min num 4
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 0}, {'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 5}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 1, '_id': 2}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 1, '_id': 9}]>
+min num 2
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 0, '_id': 8}, {'time_block_position_vote__vote__max': 1, '_id': 0}, {'time_block_position_vote__vote__max': 1, '_id': 2}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 2, '_id': 5}]>
+min num 1
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 1, '_id': 0}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 2, '_id': 5}, {'time_block_position_vote__vote__max': 2, '_id': 8}]>
+min num 1
+0
+<QuerySet [{'time_block_position_vote__vote__max': 0, '_id': 3}, {'time_block_position_vote__vote__max': 1, '_id': 7}, {'time_block_position_vote__vote__max': 2, '_id': 0}, {'time_block_position_vote__vote__max': 2, '_id': 5}, {'time_block_position_vote__vote__max': 2, '_id': 8}]>[07/Nov/2017 13:33:26] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:33:33] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=9&important_seq_num=2&work_description=Worker%207mo4yh%20put%209%20in%202&worker_id=7mo4yh HTTP/1.1" 301 0
+[07/Nov/2017 13:33:35] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=9&important_seq_num=2&work_description=Worker%207mo4yh%20put%209%20in%202&worker_id=7mo4yh HTTP/1.1" 200 2
+[07/Nov/2017 13:33:36] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8297
+[07/Nov/2017 13:33:36] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:33:46] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:33:46] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:33:46] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:33:47] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:33:48] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:33:48] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:33:49] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:33:49] "GET /admin/time_annotation/time_block/28/change/ HTTP/1.1" 200 8973
+[07/Nov/2017 13:33:50] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:33:51] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:33:56] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%20jw8xpd%20put%203%20in%202&worker_id=jw8xpd HTTP/1.1" 301 0
+[07/Nov/2017 13:33:56] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%20jw8xpd%20put%203%20in%202&worker_id=jw8xpd HTTP/1.1" 200 2
+[07/Nov/2017 13:33:58] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:34:00] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:34:00] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:34:01] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2431
+[07/Nov/2017 13:34:01] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=8&important_seq_num=3&work_description=Worker%20suju7d%20put%208%20in%203&worker_id=suju7d HTTP/1.1" 301 0
+[07/Nov/2017 13:34:02] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=8&important_seq_num=3&work_description=Worker%20suju7d%20put%208%20in%203&worker_id=suju7d HTTP/1.1" 200 2
+[07/Nov/2017 13:34:06] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:34:10] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:34:10] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:34:26] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:34:26] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:34:37] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:34:37] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:34:48] "GET /admin/time_annotation/time_block/27/change/ HTTP/1.1" 200 9543
+[07/Nov/2017 13:34:48] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:34:58] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:34:58] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:35:00] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:35:01] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:35:18] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:35:18] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:35:26] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:35:26] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:35:27] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:35:27] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+Not Found: /favicon.ico
+[07/Nov/2017 13:35:28] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:35:28] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:35:28] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:35:28] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:35:28] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2431
+Not Found: /favicon.ico
+[07/Nov/2017 13:35:29] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:35:29] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:35:29] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:35:37] "GET /admin/time_annotation/ HTTP/1.1" 200 6334
+[07/Nov/2017 13:35:39] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:35:39] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:35:43] "GET /admin/time_annotation/time_block/27/change/ HTTP/1.1" 200 9543
+[07/Nov/2017 13:35:43] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:35:51] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:35:56] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 8821
+[07/Nov/2017 13:35:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:36:36] "GET /time_annotation/putter_return_data?text_name=Old+Boy&full_text=7&important_seq_num=2&work_description=Worker+8dt8i+put+7+in+2&worker_id=8dt8i HTTP/1.1" 301 0
+[07/Nov/2017 13:36:38] "GET /time_annotation/putter_return_data/?text_name=Old+Boy&full_text=7&important_seq_num=2&work_description=Worker+8dt8i+put+7+in+2&worker_id=8dt8i HTTP/1.1" 200 2
+[07/Nov/2017 13:36:57] "GET /admin/time_annotation/time_block/19/change/ HTTP/1.1" 200 9526
+[07/Nov/2017 13:36:57] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:37:07] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:37:08] "GET /admin/time_annotation/time_block/20/change/ HTTP/1.1" 200 9390
+[07/Nov/2017 13:37:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:37:13] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:37:15] "GET /admin/time_annotation/time_block/21/change/ HTTP/1.1" 200 9681
+[07/Nov/2017 13:37:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:37:22] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:37:25] "GET /admin/time_annotation/time_block/25/change/ HTTP/1.1" 200 8492
+[07/Nov/2017 13:37:25] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:37:30] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:37:33] "GET /admin/time_annotation/time_block/24/change/ HTTP/1.1" 200 8722
+[07/Nov/2017 13:37:33] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:37:35] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:37:36] "GET /admin/time_annotation/time_block/23/change/ HTTP/1.1" 200 8804
+[07/Nov/2017 13:37:36] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:37:40] "GET /admin/time_annotation/time_block/ HTTP/1.1" 200 6344
+[07/Nov/2017 13:37:46] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9082
+[07/Nov/2017 13:37:46] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:38:19] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=7&important_seq_num=1&work_description=Worker%208xdnt8%20put%207%20in%201&worker_id=8xdnt8 HTTP/1.1" 301 0
+[07/Nov/2017 13:38:21] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=7&important_seq_num=1&work_description=Worker%208xdnt8%20put%207%20in%201&worker_id=8xdnt8 HTTP/1.1" 200 2
+[07/Nov/2017 13:39:49] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:39:50] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:39:50] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:39:50] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:39:51] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:39:51] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:40:43] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:40:43] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:40:43] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:40:47] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:40:47] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:40:48] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:40:48] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:40:52] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:40:52] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:41:17] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:41:17] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:41:21] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:41:21] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:41:47] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:41:47] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:43:08] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:43:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:43:11] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:43:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:43:25] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9344
+[07/Nov/2017 13:43:25] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:43:37] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:43:37] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:43:38] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:43:40] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:43:41] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:43:41] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
+[07/Nov/2017 13:45:03] "GET /time_annotation/putter_return_data?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%201nv6wk%20put%203%20in%202&worker_id=1nv6wk HTTP/1.1" 301 0
+[07/Nov/2017 13:45:04] "GET /time_annotation/putter_return_data/?text_name=Old%20Boy&full_text=3&important_seq_num=2&work_description=Worker%201nv6wk%20put%203%20in%202&worker_id=1nv6wk HTTP/1.1" 200 2
+[07/Nov/2017 13:46:08] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:46:08] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:46:10] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+[07/Nov/2017 13:46:12] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+Not Found: /favicon.ico
+[07/Nov/2017 13:46:12] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:46:13] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 3235
+[07/Nov/2017 13:46:53] "GET /admin/time_annotation/work_result_putter/ HTTP/1.1" 200 9606
+[07/Nov/2017 13:46:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[07/Nov/2017 13:48:54] "GET /time_annotation/putter/ HTTP/1.1" 200 2763
+[07/Nov/2017 13:48:54] "GET /static/time_annotation/putter.css HTTP/1.1" 200 3628
+[07/Nov/2017 13:48:55] "GET /static/time_annotation/putter.js HTTP/1.1" 200 5004
+Not Found: /favicon.ico
+[07/Nov/2017 13:48:56] "GET /favicon.ico HTTP/1.1" 404 2099
+[07/Nov/2017 13:48:57] "GET /time_annotation/retrieve_important_event?text_name=Old%20Boy HTTP/1.1" 301 0
+[07/Nov/2017 13:48:57] "GET /time_annotation/retrieve_important_event/?text_name=Old%20Boy HTTP/1.1" 200 2977
