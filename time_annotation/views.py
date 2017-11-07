@@ -164,7 +164,16 @@ def retrieve_important_event(request):
     if novel.Novel_num_of_trivial_time_blocks is 0 :
         novel.Novel_num_of_trivial_time_blocks = trivial_blocks.count()
         novel.save()
-    subject_text = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote')).order_by('vote_num')[0]
+    subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote')).filter(vote_num__lt = 3)
+    if subject_texts.count() is 0:
+        imp_block_num = Time_Block.objects.filter(Novel = novel, Important_Seq__gte =0).count()
+        for triv_block in trivial_blocks:
+            for i in range(0, imp_block_num+1):
+                tbp = Time_Block_Position_Vote(time_block = triv_block, Important_Seq_group_num = i, vote = 0)
+                tbp.save()
+        subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote')).filter(vote_num__lt = 3)
+    rand_id = random.randrange(0, subject_texts.count())
+    subject_text = subject_texts[rand_id]
     print(subject_text.vote_num)
     sub_dic={
         'summary': subject_text.Time_Block_Summary,
@@ -310,7 +319,7 @@ def retrieve_important_event_in_same_group(request):
     return JsonResponse(data)
 
 def retrieve_event_in_same_group_brute(request):
-    #align_brute_events()
+    align_brute_events()
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
     comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
