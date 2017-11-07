@@ -10,7 +10,7 @@ var prev_mouse_pos;
 var worker_id = Math.random().toString(36).substring(7);
 var text_title ="Old Boy"
 $(document).ready(function(){
-  scroll_position_set();
+  //scroll_position_set();
   load_text();
 
   window.onresize = function(event){
@@ -61,8 +61,8 @@ load_text = function(){
       }
       $("#tb").append("<div id='sel_box_"+important_blocks.length.toString()+"' class='sel_box'></div>")
       $("#sel_box_"+important_blocks.length.toString()).append("<input type='radio' value="+important_blocks.length.toString()+" name='group' id='group_check_"+important_blocks.length.toString()+"' class='group_check'> It belongs here! </input>")
-      //$("#novel_bottom").append("<div id='sel_box_not_sure' class='sel_box'></div>")
-      //$("#sel_box_not_sure").append("<input type='radio' value='-1' name='group' id='group_check_not_sure' class='group_check'> I am not sure with the snippet's position... </input>")
+      $("#novel_bottom").append("<div id='sel_box_not_sure' class='sel_box'></div>")
+      $("#sel_box_not_sure").append("<input type='radio' value='-1' name='group' id='group_check_not_sure' class='group_check'> I am not sure with the snippet's position... </input>")
       $("#subject_text").text(subject_block.summary)
       $("#summary_button").on("click", function(){
         $("#subject_text").text(subject_block.summary)

@@ -3,7 +3,7 @@ import json
 import math
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.db.models import Sum, Max, Min
-from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Work_Result_Putter
+from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Def_Work_Result_Putter, UnDef_Work_Result_Putter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import random
@@ -168,7 +168,7 @@ def retrieve_important_event(request):
     if subject_texts.count() is 0:
         imp_block_num = Time_Block.objects.filter(Novel = novel, Important_Seq__gte =0).count()
         for triv_block in trivial_blocks:
-            for i in range(0, imp_block_num+1):
+            for i in range(-1, imp_block_num+1):
                 tbp = Time_Block_Position_Vote(time_block = triv_block, Important_Seq_group_num = i, vote = 0)
                 tbp.save()
         subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote'), max_vote_num = Max('time_block_position_vote__vote')).filter(max_vote_num__lt = 3).order_by('max_vote_num')
@@ -206,8 +206,8 @@ def putter_return_data(request):
         vote_info.vote = vote_info.vote + 1
     vote_info.save()
     vote_tb_group = Time_Block_Position_Vote.objects.filter(time_block = subject_text)
-    vote_sum = vote_tb_group.aggregate(Sum('vote'))['vote__sum']
-    if vote_sum >= 3 :
+    vote_max = vote_tb_group.aggregate(Max('vote'))['vote__max']
+    if vote_max >= 3 :
         the_object = Time_Block_Position_Vote.objects.filter(time_block = subject_text).order_by('-vote')[0]
         subject_text.Important_Seq_group_num = the_object.Important_Seq_group_num
         subject_text.save()
@@ -376,8 +376,10 @@ def brute_work_info(worker_id, work_description):
     WI = Work_Result_Brute(worker_id = worker_id, work_description = work_description)
     WI.save()
 def putter_work_info(worker_id, work_description):
-    WI = Work_Result_Putter(worker_id = worker_id, work_description = work_description)
+    WI = UnDef_Work_Result_Putter(worker_id = worker_id, work_description = work_description)
     WI.save()
+
+
 def flag_work_info(worker_id, work_description):
     WI = Work_Result_Flag(worker_id = worker_id, work_description = work_description)
     WI.save()

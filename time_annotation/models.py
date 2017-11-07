@@ -65,7 +65,14 @@ class Work_Result_Brute(models.Model):
     def __str__(self):
         return self.work_description
 
-class Work_Result_Putter(models.Model):
+class UnDef_Work_Result_Putter(models.Model):
+    worker_id = models.TextField(max_length=1000, default="")
+    work_description = models.TextField(max_length=1000, default="")
+    def __str__(self):
+        return self.work_description
+
+
+class Def_Work_Result_Putter(models.Model):
     worker_id = models.TextField(max_length=1000, default="")
     work_description = models.TextField(max_length=1000, default="")
     def __str__(self):
