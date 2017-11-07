@@ -6,6 +6,7 @@ from django.db.models import Sum, Max
 from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Work_Result_Putter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
+import random
 # Create your views here.
 def step1(request):
     return render(request, 'time_annotation/annotator.html', {})
@@ -279,7 +280,7 @@ def retrieve_important_event_in_same_group(request):
     novel = Novel.objects.get(Novel_title = text_name)
     dicts = extract_important_blocks(novel)
     comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
-    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote') #.filter(id_vote__lt = 3).order_by('?')
+    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote') #.filter(id_vote__lt= 1).order_by('id_vote', '?')
     print(comparison_sets)
     if comparison_sets[0]['id_vote'] < 3:
         comparison_set_id=comparison_sets[0]['_id']
@@ -325,13 +326,16 @@ def retrieve_event_in_same_group_brute(request):
                 id_ = id_ + 1
         comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
 
-    comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote', '?')
+    comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote')
     print(comparison_sets)
-    if comparison_sets[0]['id_vote'] < 3:
-        comparison_set_id=comparison_sets[0]['_id']
-        print(comparison_sets[0]['id_vote'])
+    print(comparison_sets.count())
+    print(comparison_sets.aggregate(Sum('id_vote')))
+    rand_id = random.randrange(0,comparison_sets.count())
+    if comparison_sets[rand_id]['id_vote'] < 3:
+        comparison_set_id=comparison_sets[rand_id]['_id']
+        print(comparison_sets[rand_id])
     print(comparison_set_id)
-    comparison_set = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = comparison_set_id)[0]
+    comparison_set = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = rand_id)[0]
     print(comparison_set)
     dict1={
         'summary' : comparison_set._prev.Time_Block_Summary,
