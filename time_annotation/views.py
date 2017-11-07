@@ -280,11 +280,12 @@ def retrieve_important_event_in_same_group(request):
     novel = Novel.objects.get(Novel_title = text_name)
     dicts = extract_important_blocks(novel)
     comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
-    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote') #.filter(id_vote__lt= 1).order_by('id_vote', '?')
+    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote')
     print(comparison_sets)
-    if comparison_sets[0]['id_vote'] < 3:
-        comparison_set_id=comparison_sets[0]['_id']
-    imp_id = comparison_sets[0]['Important_Seq_group_num']
+    rand_id = random.randrange(0,comparison_sets.count())
+    if comparison_sets[rand_id]['id_vote'] < 3:
+        comparison_set_id=comparison_sets[rand_id]['_id']
+    imp_id = comparison_sets[comparison_set_id]['Important_Seq_group_num']
     print(comparison_set_id)
     comparison_set = Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = comparison_set_id, Important_Seq_group_num=imp_id)[0]
     print(comparison_set)
@@ -309,6 +310,7 @@ def retrieve_important_event_in_same_group(request):
     return JsonResponse(data)
 
 def retrieve_event_in_same_group_brute(request):
+    #align_brute_events()
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
     comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
@@ -325,7 +327,8 @@ def retrieve_event_in_same_group_brute(request):
                 t_b.save()
                 id_ = id_ + 1
         comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
-    print(comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote= 1).order_by('id_vote').count())
+    print("currently.. done is.........")
+    print(comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote').aggregate(Sum('id_vote'))['id_vote__sum']- 15)
     comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote')
     print(comparison_sets)
     print(comparison_sets.count())
@@ -377,3 +380,14 @@ def extract_important_blocks(novel):
         dicts.append(dic)
 
     return dicts
+
+def align_brute_events():
+    t = Brute_Time_Block_Pairwise_Comparison.objects.values('_prev___id').annotate(Sum('vote'))
+    tt = Brute_Time_Block_Pairwise_Comparison.objects.values('_next___id').annotate(tot =Sum('vote')+Sum('not_sure'))
+    print(t)
+    print(tt)
+    ratio=[]
+    for i in range(0, 10):
+        ratio.append(t[i]['vote__sum']/(t[i]['vote__sum']+tt[i]['tot']))
+    print(ratio)
+    print("--------------")
