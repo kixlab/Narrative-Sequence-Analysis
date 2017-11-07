@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/splitter.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'time_annotation/splitter.js' %}" /></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div id="overlay" class="overlay"></div>
+    <!--<div id="overlay_trans" class="overlay"></div>-->
+    <div id="prompt" class="container-fluid">Are there time gaps betwen parts of the novel?</div>
+    <div id = "total_container" class="container-fluid">
+      <div id = "novel_box" class = "col-xs-8">
+        <div id = "title"></div>
+        <div id="novel_text">
+          <div id="tb"></div>
+        </div>
+      </div>
+      <div id= "time_line" class = " col-xs-4">
+        <div id = "sum_title">Candidate Boundaries</div>
+        <div id="summary_pane">
+        <div id="tl"></div>
+      </div>
+    </div>
+    </div>
+    <button id="end_task">End task!</button>
+  </body>
+</html>

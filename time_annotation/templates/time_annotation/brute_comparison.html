@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/brute_comparison.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'time_annotation/brute_comparison.js' %}" /></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div id="tutorial"><div>
+    </div><button id="tuto_close">Close</button></div>
+    <div id="overlay" class="overlay"></div>
+    <!--<div id="overlay_trans" class="overlay"></div>-->
+    <div id = "total_container" class="container-fluid">
+      <div id="top_pane" class="col-xs-12">
+        <div id="summary_title"></div>
+        <div id="summary_content"></div>
+      </div>
+  <div id="bottom_pane" class = "col-xs-12">
+    <div id="subject_title">Following two are snippets of a story. Guess which snippet would have happened earlier.</div>
+    <div id="subject_content">
+      <div id="subject_text_box_1" class="col-xs-6 subject_text_box">
+        <div id="subject_buttons_1" class="subject_buttons">
+          <input id='subject_radio_1' type='radio' name='sequence'> This snippet might have happened earlier </input>
+          <div>
+            <button id="summary_button_1">Summary</button>
+            <button id="full_text_button_1">Full Text</button>
+          </div>
+        </div>
+        <div id="subject_text_1">
+      </div>
+    </div>
+      <div id="subject_text_box_2" class="col-xs-6 subject_text_box">
+        <div id="subject_buttons_2" class="subject_buttons">
+          <input id='subject_radio_2' type='radio' name='sequence'> This snippet might have happened earlier </input>
+          <div>
+            <button id="summary_button_2">Summary</button>
+            <button id="full_text_button_2">Full Text</button>
+          </div>
+        </div>
+        <div id="subject_text_2">
+      </div>
+
+      </div>
+    </div>
+    <div>
+      <input type='radio' name='sequence' val="not_sure"> Not sure </input>
+    </div>
+  </div>
+    </div>
+    <div class="col-xs-12">
+    <button id="submit">Submit</button>
+    <!--<button id="show_tuto">See Tutorial</button>-->
+  </div>
+  </body>
+</html>

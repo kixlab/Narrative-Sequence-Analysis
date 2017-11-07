@@ -1,0 +1,191 @@
+html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
+}
+a{
+  position: relative;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+::selection{
+  background-color: #eeeeee;
+}
+#title{
+  background-color: #eeeeee;
+}
+#top_pane{
+  height: 70%;
+}
+#bottom_pane{
+  padding: 2%;
+  border: 1px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 1px solid transparent;
+  height: 30%;
+}
+#total_container{
+  padding-top : 2%;
+  height: 90%;
+}
+#novel_box{
+  padding: 2%;
+  height: 100%;
+  border: solid 1px black;
+  border-right: solid 1px transparent;
+  border-top-left-radius: 10px;
+
+}
+#time_line{
+  background-color: #eeeeff;
+  position: relative;
+  padding: 2%;
+  height: 100%;
+  border: solid 1px black;
+  border-top-right-radius: 10px;
+  overflow-y: scroll;
+}
+#novel_text{
+    overflow-y: scroll;
+    border-bottom: solid 1px black;
+}
+#tb{
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+}
+#summary_pane{
+  position: relative;
+  overflow-y: scroll;
+}
+#tl{
+  position: relative;
+}
+.sentence{
+  color: black;
+}
+.sum_box{
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  padding: 1px;
+  z-index: 5;
+  border: 1px solid grey;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#overlay_trans{
+  visibility: hidden;
+  background-color: transparent;
+  position: fixed;
+  width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+ /* Black background with opacity */
+    z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+#overlay{
+  visibility: hidden;
+  background-color: rgba(1,1,1,0.5);
+  position: fixed;
+  width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+ /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+.sum_input{
+  width: 100%;
+}
+button{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#end_task{
+  visibility: hidden;
+}
+div{
+  word-wrap: break-word;
+}
+#submit{
+
+  margin-top: 5px;
+}
+.del{
+  background-color: #e26a82;
+}
+.sub{
+  background-color: #69e09e;
+}
+
+* {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+
+
+a{
+   -moz-user-select: text;
+   -khtml-user-select: text;
+   -webkit-user-select: text;
+   -o-user-select: text;
+   user-select: text;
+}
+#tutorial{
+  visibility: hidden;
+  background-color: white;
+  border: solid 1px black;
+  position: fixed;
+  width: 96%; /* Full width (cover the whole page) */
+    height: 60%; /* Full height (cover the whole page) */
+    top: 3%;
+    left: 2%;
+    padding: 5%;
+ /* Black background with opacity */
+    z-index: 12; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+#show_tuto{
+  margin-top: 5px;
+  float: right;
+}
+.important{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.sel_box{
+  margin: 5px;
+  padding: 5px;
+  background-color: #eeeeee;
+}
+.group_check{
+
+}
+#novel_bottom{
+  position: absolute;
+
+
+}

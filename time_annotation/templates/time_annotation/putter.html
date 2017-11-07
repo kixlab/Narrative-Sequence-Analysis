@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/putter.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'time_annotation/putter.js' %}" /></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div id="tutorial"><div>
+      You are going to separate a part of novel as a temporal block.
+      You can think of a part of given text as a edge of a block if
+      <li>flow of the story <b>go back to the past</b></li>
+      <li>or when the flow of the story leaps with <b>huge time gap</b></li>
+      <br>
+      You can make a block by
+      <li><b>dragging on the part</b> of the text you want to make as a block on the left pane</li>
+      <li><b>writing summary</b> of the part and <b>submit</b> on the right pane</li>
+      <br>
+      if you want to make revision, or revert the part you made, you can simply put your mouse on the summary and then click buttons
+      If you made the whole text as temporal blocks, then you will see submission dialogue.
+      Even if you do not submit rightly, you can submit anytime by clicking End Task button on the left bottom.
+      <br><br>
+      You can see this explanation again by putting mouse on <b>See Tutorial</b> button
+    </div><button id="tuto_close">Close</button></div>
+    <div id="overlay" class="overlay"></div>
+    <!--<div id="overlay_trans" class="overlay"></div>-->
+    <div id = "total_container" class="container-fluid">
+      <div id="top_pane">
+      <div id = "novel_box" class = "col-xs-8">
+        <div id = "title"></div>
+        <div id="novel_text">
+          <div id="tb"></div>
+        </div>
+        <div id="novel_bottom"></div>
+      </div>
+      <div id= "time_line" class = " col-xs-4">
+        <div id = "sum_title">Full text of the mouseovered part</div>
+        <div id="summary_pane">
+        <div id="tl"></div>
+      </div>
+    </div>
+  </div>
+  <div id="bottom_pane" class = "col-xs-12">
+    <div id="subject_title">Where should below snippet be placed in the above timeline?</div>
+    <div id="subject_content">
+      <div id="subject_buttons">
+        <button id="summary_button">Summary</button>
+        <button id="full_text_button">Full Text</button>
+      </div>
+      <div id="subject_text"></div>
+    </div>
+  </div>
+    </div>
+    <div class="col-xs-12">
+    <button id="submit">Submit</button>
+    <button id="show_tuto">See Tutorial</button>
+  </div>
+  </body>
+</html>

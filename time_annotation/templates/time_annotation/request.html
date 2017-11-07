@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/request.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'time_annotation/request.js' %}" /></script>
+  </head>
+  <body>
+    <div id = "total_container" class="container-fluid">
+      <h>Title</h>
+      <input id="title" type="text" class="col-xs-12"></input>
+      <h>Text</h>
+      <textarea id="text" class="col-xs-12"></textarea>
+      <button id="return" type="button">Return</button>
+    </div>
+  </body>
+</html>
