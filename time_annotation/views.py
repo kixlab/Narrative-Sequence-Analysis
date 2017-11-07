@@ -325,7 +325,7 @@ def retrieve_event_in_same_group_brute(request):
                 id_ = id_ + 1
         comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
 
-    comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).order_by('id_vote')
+    comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt = 3).order_by('?')
     print(comparison_sets)
     if comparison_sets[0]['id_vote'] < 3:
         comparison_set_id=comparison_sets[0]['_id']
