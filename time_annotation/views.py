@@ -2,7 +2,7 @@ from django.shortcuts import render
 import json
 import math
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from django.db.models import Sum, Max
+from django.db.models import Sum, Max, Min
 from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Work_Result_Putter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
@@ -164,17 +164,21 @@ def retrieve_important_event(request):
     if novel.Novel_num_of_trivial_time_blocks is 0 :
         novel.Novel_num_of_trivial_time_blocks = trivial_blocks.count()
         novel.save()
-    subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote')).filter(vote_num__lt = 3)
+    subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote'), max_vote_num = Max('time_block_position_vote__vote')).filter(max_vote_num__lt = 3).order_by('max_vote_num')
     if subject_texts.count() is 0:
         imp_block_num = Time_Block.objects.filter(Novel = novel, Important_Seq__gte =0).count()
         for triv_block in trivial_blocks:
             for i in range(0, imp_block_num+1):
                 tbp = Time_Block_Position_Vote(time_block = triv_block, Important_Seq_group_num = i, vote = 0)
                 tbp.save()
-        subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote')).filter(vote_num__lt = 3)
-    rand_id = random.randrange(0, subject_texts.count())
+        subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote'), max_vote_num = Max('time_block_position_vote__vote')).filter(max_vote_num__lt = 3).order_by('max_vote_num')
+    min_count = subject_texts.filter(max_vote_num = subject_texts.aggregate(Min('max_vote_num'))['max_vote_num__min']).count()
+    print("min num", min_count)
+    rand_id = random.randrange(0, min_count)
     subject_text = subject_texts[rand_id]
     print(subject_text.vote_num)
+    subject_texts = subject_texts.values('_id').annotate(Max('time_block_position_vote__vote'))
+    print(subject_texts)
     sub_dic={
         'summary': subject_text.Time_Block_Summary,
         'full_text' : subject_text.Time_Block_Full_Text,

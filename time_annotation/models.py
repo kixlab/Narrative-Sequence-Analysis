@@ -30,7 +30,7 @@ class Time_Block(models.Model):
     Novel = models.ForeignKey(Novel, null=True, on_delete=models.SET_NULL)
     _id = models.IntegerField(default=0)
     def __str__(self):
-        return self.Time_Block_Summary
+        return str(self._id)
 
 class Time_Block_Position_Vote(models.Model):
     time_block = models.ForeignKey(Time_Block, null=True, on_delete=models.SET_NULL)
