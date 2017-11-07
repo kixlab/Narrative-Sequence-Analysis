@@ -28,6 +28,7 @@ class Time_Block(models.Model):
     Important_Seq = models.IntegerField(default=-1)
     Important_Seq_group_num = models.IntegerField(default=-1)
     Novel = models.ForeignKey(Novel, null=True, on_delete=models.SET_NULL)
+    _id = models.IntegerField(default=0)
     def __str__(self):
         return self.Time_Block_Summary
 
@@ -57,3 +58,21 @@ class Brute_Time_Block_Pairwise_Comparison(models.Model):
     _id = models.IntegerField(default = 0)
     def __str__(self):
         return self.Novel.Novel_title+str(self._id)
+
+class Work_Result_Brute(models.Model):
+    worker_id = models.TextField(max_length=1000, default="")
+    work_description = models.TextField(max_length=1000, default="")
+    def __str__(self):
+        return self.work_description
+
+class Work_Result_Putter(models.Model):
+    worker_id = models.TextField(max_length=1000, default="")
+    work_description = models.TextField(max_length=1000, default="")
+    def __str__(self):
+        return self.work_description
+
+class Work_Result_Flag(models.Model):
+    worker_id = models.TextField(max_length=1000, default="")
+    work_description = models.TextField(max_length=1000, default="")
+    def __str__(self):
+        return self.work_description

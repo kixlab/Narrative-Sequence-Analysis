@@ -3,7 +3,7 @@ import json
 import math
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.db.models import Sum, Max
-from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison
+from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Work_Result_Putter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 # Create your views here.
@@ -168,6 +168,7 @@ def retrieve_important_event(request):
     sub_dic={
         'summary': subject_text.Time_Block_Summary,
         'full_text' : subject_text.Time_Block_Full_Text,
+        'id': subject_text._id
     }
     dicts = extract_important_blocks(novel)
     data={
@@ -178,9 +179,10 @@ def retrieve_important_event(request):
     return JsonResponse(data)
 
 def putter_return_data(request):
+    putter_work_info(request.GET.get("worker_id"), request.GET.get("work_description"))
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
-    subject_text = Time_Block.objects.get(Novel = novel, Time_Block_Full_Text = request.GET.get("full_text"))
+    subject_text = Time_Block.objects.get(Novel = novel, _id = request.GET.get("full_text"))
     imp_group_num = request.GET.get("important_seq_num")
     vote_group = Time_Block_Position_Vote.objects.filter(time_block = subject_text, Important_Seq_group_num = imp_group_num)
     if vote_group.count() is 0:
@@ -245,18 +247,25 @@ def flag_comparison_return_data(request):
     return JsonResponse(data)
 
 def brute_comparison_return_data(request):
+    brute_work_info(request.GET.get("worker_id"), request.GET.get("work_description"))
     comp_id = request.GET.get("comp_id")
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
     first_block = request.GET.get("first_block")
-    f_b = Time_Block.objects.filter(Time_Block_Full_Text = first_block, Novel = novel)
+    print(first_block)
+    print(text_name)
+    f_b = Time_Block.objects.filter(_id = first_block, Novel = novel)
+    print("returning...")
+    print(f_b)
     if f_b.count() is 0:
+        print("hey?")
         comp_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(_id = comp_id, Novel=novel)
         for comp_set in comp_sets:
+            print("hoho")
             comp_set.not_sure = comp_set.not_sure + 1
             comp_set.save()
     else:
-        TBC = Brute_Time_Block_Pairwise_Comparison.objects.get(_id = comp_id, Novel = novel, _prev = f_b)
+        TBC = Brute_Time_Block_Pairwise_Comparison.objects.get(_id = comp_id, Novel = novel, _prev = f_b[0])
         TBC.vote=TBC.vote+1
         TBC.save()
         print("horay!")
@@ -281,10 +290,12 @@ def retrieve_important_event_in_same_group(request):
     dict1={
         'summary' : comparison_set._prev.Time_Block_Summary,
         'full_text' : comparison_set._prev.Time_Block_Full_Text,
+        'id' : comparison_set._prev._id
     }
     dict2={
         'summary' : comparison_set._next.Time_Block_Summary,
         'full_text' : comparison_set._next.Time_Block_Full_Text,
+        'id' : comparison_set._next._id
     }
     data={
         "novel_name" : novel.Novel_title,
@@ -324,10 +335,12 @@ def retrieve_event_in_same_group_brute(request):
     dict1={
         'summary' : comparison_set._prev.Time_Block_Summary,
         'full_text' : comparison_set._prev.Time_Block_Full_Text,
+        'id' : comparison_set._prev._id
     }
     dict2={
         'summary' : comparison_set._next.Time_Block_Summary,
         'full_text' : comparison_set._next.Time_Block_Full_Text,
+        'id' : comparison_set._next._id
     }
     data={
         'summary' : novel.Summary,
@@ -338,6 +351,15 @@ def retrieve_event_in_same_group_brute(request):
     }
     return JsonResponse(data)
 
+def brute_work_info(worker_id, work_description):
+    WI = Work_Result_Brute(worker_id = worker_id, work_description = work_description)
+    WI.save()
+def putter_work_info(worker_id, work_description):
+    WI = Work_Result_Putter(worker_id = worker_id, work_description = work_description)
+    WI.save()
+def flag_work_info(worker_id, work_description):
+    WI = Work_Result_Flag(worker_id = worker_id, work_description = work_description)
+    WI.save()
 
 def extract_important_blocks(novel):
     important_blocks = Time_Block.objects.filter(Novel = novel, Important_Seq__gte = 0).order_by("Important_Seq")

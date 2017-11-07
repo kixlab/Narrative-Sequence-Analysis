@@ -137,13 +137,7 @@ div{
   background-color: #69e09e;
 }
 
-* {
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -o-user-select: none;
-   user-select: none;
-}
+
 
 
 a{
@@ -190,11 +184,23 @@ a{
 
 }
 #subject_text_box_1{
-  border-right: none;
+
 }
 .subject_text_box{
   border: solid 1px black;
 }
 .subject_buttons{
   border-bottom: solid 1px black;
+}
+#bottom_pane{
+  overflow-y: scroll;
+}
+#full_text_button_1{
+  visibility: hidden;
+}
+#full_text_button_2{
+  visibility: hidden;
+}
+#subject_title{
+  font-weight: bold;
 }

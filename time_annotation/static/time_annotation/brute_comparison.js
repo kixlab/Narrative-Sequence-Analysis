@@ -9,6 +9,10 @@ var tuto_seq = 1;
 var prev_mouse_pos;
 var comp_id, imp_id;
 
+var text_title = "Old Boy"
+
+var worker_id = Math.random().toString(36).substring(7);;
+
 $(document).ready(function(){
   scroll_position_set();
   load_text();
@@ -23,7 +27,8 @@ $(document).ready(function(){
         console.log($('input[name=sequence]:checked').attr("val"));
         return_data();
         alert("Thank you for participating!")
-        $("body").remove()
+        $("body").empty().append("<div>Your Worker ID</div><div>"+worker_id+"</div>")
+
       }
     }else{
       alert("Cannot submit because you did not specify answer")
@@ -37,7 +42,7 @@ load_text = function(){
   $.ajax({
     url: '/time_annotation/retrieve_event_in_same_group_brute',
     data:{
-      "text_name": "Old Boy",
+      "text_name": text_title,
       //"text_id" : 27,
     },
     dataType: 'json',
@@ -46,6 +51,7 @@ load_text = function(){
       text_a = JSON.parse(data.text_a);
       text_b = JSON.parse(data.text_b);
       comp_id = data.comp_id;
+      console.log(comp_id);
       var summary = data.summary
       if(summary.length>5){
         $("#summary_title").text(data.novel_name +" - Summary");
@@ -58,9 +64,9 @@ load_text = function(){
         $("#top_pane").remove()
       }
       $("#subject_text_1").text(text_a['summary'])
-      $("#subject_radio_1").attr("val", text_a['full_text'])
+      $("#subject_radio_1").attr("val", text_a['id'].toString())
       $("#subject_text_2").text(text_b['summary'])
-      $("#subject_radio_2").attr("val", text_b['full_text'])
+      $("#subject_radio_2").attr("val", text_b['id'].toString())
       $("#summary_button_1").on("click", function(){
         $("#subject_text_1").text(text_a['summary'])
         $(this).css("border-color", "black")
@@ -140,12 +146,28 @@ tutorial_set = function(){
 }
 
 return_data = function(){
+  var return_ft;
+  var work_description
+
+  if ($('input[name=sequence]:checked').attr("id")=="subject_radio_1"){
+    return_ft=text_a['id']
+    work_description ="In Brute Condition, "+worker_id+" voted for "+text_a['id'].toString()+" instead of "+text_b['id'].toString()
+  }else if($('input[name=sequence]:checked').attr("id")=="subject_radio_2"){
+    return_ft=text_b['id']
+    work_description ="In Brute Condition, "+worker_id+" voted for "+text_b['id'].toString()+" instead of "+text_a['id'].toString()
+  }else{
+    return_ft = -1
+    work_description ="In Brute Condition, "+worker_id+", among "+text_a['id'].toString()+" and "+text_b['id'].toString()+", was not sure which comes first "
+  }
+
   $.ajax({
     url: '/time_annotation/brute_comparison_return_data',
     data:{
-      "text_name": "Hard feelings",
+      "text_name": text_title,
       "comp_id": comp_id,
-      "first_block": $('input[name=sequence]:checked').attr("val"),
+      "first_block": return_ft,
+      'worker_id' : worker_id,
+      "work_description" : work_description,
       //"text_id" : 27,
     },
     dataType: 'json',

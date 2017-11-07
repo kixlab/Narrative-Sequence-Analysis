@@ -22,7 +22,8 @@ a:hover{
   background-color: #eeeeee;
 }
 #title{
-  background-color: #eeeeee;
+  font-weight: bold;
+  font-size: 20px;
 }
 #top_pane{
   height: 70%;
@@ -184,8 +185,20 @@ a{
 .group_check{
 
 }
+#show_tuto{
+  visibility: hidden;
+}
 #novel_bottom{
   position: absolute;
 
 
+}
+#full_text_button{
+  visibility: hidden;
+}
+#bottom_pane{
+  overflow-y: scroll;
+}
+#subject_title{
+  font-weight: bold;
 }

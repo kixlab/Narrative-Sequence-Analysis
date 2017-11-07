@@ -10,7 +10,7 @@ var prev_mouse_pos;
 var comp_id, imp_id;
 
 $(document).ready(function(){
-  scroll_position_set();
+//  scroll_position_set();
   load_text();
 
   window.onresize = function(event){
@@ -52,7 +52,7 @@ load_text = function(){
       for(var i=0; i<important_blocks.length; i++){
         $("#tb").append("<div id='sel_box_"+i.toString()+"' class='sel_box'></div>")
         if(i==imp_id){
-          $("#sel_box_"+i.toString()).text("Snippets below are belong to here.").css('border', 'solid 1.5px black')
+          $("#sel_box_"+i.toString()).text("Snippets below are positioned here.").css('border', 'solid 1.5px black')
           $("#bottom_pane").on("mouseover", function(){
             $("#sel_box_"+imp_id.toString()).css("background-color", "#eeffee")
           }).on("mouseout", function(){
@@ -61,7 +61,7 @@ load_text = function(){
         }
         $("#tb").append("<div id='important_"+i.toString()+"' class='important' val='"+important_blocks[i]['full_text']+"'>"+important_blocks[i]['summary']+"</div>")
         $("#important_"+i.toString()).on("mouseover", function(){
-          $("#tl").text($(this).attr("val"))
+          $("#tl").text(important_blocks[parseInt($(this).attr("id").substr(10))]['summary'])
           $(".important").css("background-color", "white")
           $(this).css("background-color", "#eeeeff")
         })

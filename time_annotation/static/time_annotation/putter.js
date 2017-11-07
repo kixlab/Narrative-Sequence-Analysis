@@ -7,7 +7,8 @@ var sel_st;
 var sel_end;
 var tuto_seq = 1;
 var prev_mouse_pos;
-
+var worker_id = Math.random().toString(36).substring(7);
+var text_title ="Old Boy"
 $(document).ready(function(){
   scroll_position_set();
   load_text();
@@ -22,7 +23,7 @@ $(document).ready(function(){
         console.log("return data");
         return_data();
         alert("Thank you for participating!")
-        $("body").remove()
+        $("body").empty().append("<div>Your Worker ID</div><div>"+worker_id+"</div>")
       }
     }else{
       alert("Cannot submit because you did not specify answer")
@@ -36,21 +37,22 @@ load_text = function(){
   $.ajax({
     url: '/time_annotation/retrieve_important_event',
     data:{
-      "text_name": "Old Boy",
+      "text_name": text_title,
       //"text_id" : 27,
     },
     dataType: 'json',
     success: function(data){
-      $("#title").text(data.novel_name);
+      $("#title").text(data.novel_name+" - Timeline");
       important_blocks = JSON.parse(data.important_blocks);
       subject_block = JSON.parse(data.subject_block);
       console.log(important_blocks)
       for(var i=0; i<important_blocks.length; i++){
         $("#tb").append("<div id='sel_box_"+i.toString()+"' class='sel_box'></div>")
         $("#sel_box_"+i.toString()).append("<input type='radio' value="+i.toString()+" name='group' id='group_check_"+i.toString()+"' class='group_check'> It belongs here! </input>")
-        $("#tb").append("<div id='important_"+i.toString()+"' class='important' val='"+important_blocks[i]['full_text']+"'>"+important_blocks[i]['summary']+"</div>")
+        $("#tb").append("<div id='important_"+i.toString()+"' class='important' val='"+important_blocks[i]['full_text']+"'></div>")
+        $("#important_"+i.toString()).text(important_blocks[i]['summary'])
         $("#important_"+i.toString()).on("mouseover", function(){
-          $("#tl").text($(this).attr("val"))
+          $("#tl").text(important_blocks[parseInt($(this).attr("id").substr(10))]['summary'])
           $(".important").css("background-color", "white")
           $(this).css("background-color", "#eeeeff")
         })
@@ -59,8 +61,8 @@ load_text = function(){
       }
       $("#tb").append("<div id='sel_box_"+important_blocks.length.toString()+"' class='sel_box'></div>")
       $("#sel_box_"+important_blocks.length.toString()).append("<input type='radio' value="+important_blocks.length.toString()+" name='group' id='group_check_"+important_blocks.length.toString()+"' class='group_check'> It belongs here! </input>")
-      $("#novel_bottom").append("<div id='sel_box_not_sure' class='sel_box'></div>")
-      $("#sel_box_not_sure").append("<input type='radio' value='-1' name='group' id='group_check_not_sure' class='group_check'> I am not sure with the snippet's position... </input>")
+      //$("#novel_bottom").append("<div id='sel_box_not_sure' class='sel_box'></div>")
+      //$("#sel_box_not_sure").append("<input type='radio' value='-1' name='group' id='group_check_not_sure' class='group_check'> I am not sure with the snippet's position... </input>")
       $("#subject_text").text(subject_block.summary)
       $("#summary_button").on("click", function(){
         $("#subject_text").text(subject_block.summary)
@@ -125,12 +127,15 @@ tutorial_set = function(){
 }
 
 return_data = function(){
+  var work_description = "Worker "+ worker_id + " put "+subject_block.id.toString()+" in "+$('input[name=group]:checked').val()
   $.ajax({
     url: '/time_annotation/putter_return_data',
     data:{
-      "text_name": "Hard feelings",
-      "full_text": subject_block.full_text,
+      "text_name": text_title,
+      "full_text": subject_block.id,
       "important_seq_num": parseInt($('input[name=group]:checked').val()),
+      'work_description' : work_description,
+      'worker_id' : worker_id,
       //"text_id" : 27,
     },
     dataType: 'json',
