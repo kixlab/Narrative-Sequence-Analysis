@@ -325,7 +325,7 @@ def retrieve_event_in_same_group_brute(request):
                 t_b.save()
                 id_ = id_ + 1
         comparison_sets = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
-
+    print(comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote= 1).order_by('id_vote').count())
     comparison_sets = comparison_sets.values('_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote')
     print(comparison_sets)
     print(comparison_sets.count())
@@ -335,7 +335,7 @@ def retrieve_event_in_same_group_brute(request):
         comparison_set_id=comparison_sets[rand_id]['_id']
         print(comparison_sets[rand_id])
     print(comparison_set_id)
-    comparison_set = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = rand_id)[0]
+    comparison_set = Brute_Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = comparison_set_id)[0]
     print(comparison_set)
     dict1={
         'summary' : comparison_set._prev.Time_Block_Summary,
