@@ -2,8 +2,9 @@ from django.shortcuts import render
 import json
 import math
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from django.db.models import Sum, Max, Min
+from django.db.models import Sum, Max, Min, Count
 from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Def_Work_Result_Putter, UnDef_Work_Result_Putter
+from .models import Work_Result_Putter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import random
@@ -164,21 +165,17 @@ def retrieve_important_event(request):
     if novel.Novel_num_of_trivial_time_blocks is 0 :
         novel.Novel_num_of_trivial_time_blocks = trivial_blocks.count()
         novel.save()
-    subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote'), max_vote_num = Max('time_block_position_vote__vote')).filter(max_vote_num__lt = 3).order_by('max_vote_num')
-    if subject_texts.count() is 0:
-        imp_block_num = Time_Block.objects.filter(Novel = novel, Important_Seq__gte =0).count()
-        for triv_block in trivial_blocks:
-            for i in range(-1, imp_block_num+1):
-                tbp = Time_Block_Position_Vote(time_block = triv_block, Important_Seq_group_num = i, vote = 0)
-                tbp.save()
-        subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Sum('time_block_position_vote__vote'), max_vote_num = Max('time_block_position_vote__vote')).filter(max_vote_num__lt = 3).order_by('max_vote_num')
-    min_count = subject_texts.filter(max_vote_num = subject_texts.aggregate(Min('max_vote_num'))['max_vote_num__min']).count()
-    print("min num", min_count)
+    subject_texts = trivial_blocks.filter(Important_Seq_group_num__lt=0).annotate(vote_num = Count('work_result_putter')).order_by('vote_num')
+
+    min_count = subject_texts.filter(vote_num = subject_texts.aggregate(Min('vote_num'))['vote_num__min']).count()
+    #print("min num", min_count)
     rand_id = random.randrange(0, min_count)
-    subject_text = subject_texts[rand_id]
-    print(subject_text.vote_num)
-    subject_texts = subject_texts.values('_id').annotate(Max('time_block_position_vote__vote'))
     print(subject_texts)
+    print(rand_id)
+    subject_text = subject_texts[rand_id]
+    print(subject_text._id)
+    #subject_texts = subject_texts.values('_id').annotate(Max('time_block_position_vote__vote'))
+    #print(subject_texts)
     sub_dic={
         'summary': subject_text.Time_Block_Summary,
         'full_text' : subject_text.Time_Block_Full_Text,
@@ -188,50 +185,22 @@ def retrieve_important_event(request):
     data={
         'subject_block' : json.dumps(sub_dic),
         "novel_name" : novel.Novel_title,
-        'important_blocks':json.dumps(dicts)
+        'important_blocks':json.dumps(dicts),
+        'total_time_block_num' : Time_Block.objects.filter(Novel=novel).count(),
     }
     return JsonResponse(data)
 
 def putter_return_data(request):
-    putter_work_info(request.GET.get("worker_id"), request.GET.get("work_description"))
+    #putter_work_info(request.GET.get("worker_id"), request.GET.get("work_description"))
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
     subject_text = Time_Block.objects.get(Novel = novel, _id = request.GET.get("full_text"))
     imp_group_num = request.GET.get("important_seq_num")
-    vote_group = Time_Block_Position_Vote.objects.filter(time_block = subject_text, Important_Seq_group_num = imp_group_num)
-    if vote_group.count() is 0:
-        vote_info = Time_Block_Position_Vote(time_block = subject_text, Important_Seq_group_num = imp_group_num, vote=1)
-    else:
-        vote_info = vote_group[0]
-        vote_info.vote = vote_info.vote + 1
-    vote_info.save()
-    vote_tb_group = Time_Block_Position_Vote.objects.filter(time_block = subject_text)
-    vote_max = vote_tb_group.aggregate(Max('vote'))['vote__max']
-    if vote_max >= 3 :
-        the_object = Time_Block_Position_Vote.objects.filter(time_block = subject_text).order_by('-vote')[0]
-        subject_text.Important_Seq_group_num = the_object.Important_Seq_group_num
-        subject_text.save()
-        if Time_Block.objects.filter(Novel = novel).count() is Time_Block.objects.filter(Novel = novel, Important_Seq_group_num__gte = 0).count():
-            print("max!")
-            novel_texts = Time_Block.objects.filter(Novel = novel)
-            max_imp_num = novel_texts.aggregate(Max('Important_Seq_group_num'))['Important_Seq_group_num__max']
-            for imp_num in range(0, max_imp_num+1):
-                one_non_imp_group = novel_texts.filter(Important_Seq_group_num = imp_num, Important_Seq = -1)
-                print(one_non_imp_group)
-                id_= 0
-                for i in range(0, one_non_imp_group.count()):
-                    for j in range(i+1, one_non_imp_group.count()):
-                        block_a = one_non_imp_group[i]
-                        block_b = one_non_imp_group[j]
-                        print(i)
-                        print(j)
-                        print(block_a)
-                        print(block_b)
-                        t_a = Time_Block_Pairwise_Comparison(Novel = novel,_id = id_, _prev = block_a, _next = block_b, Important_Seq_group_num = imp_num)
-                        t_b = Time_Block_Pairwise_Comparison(Novel = novel,_id = id_, _prev = block_b, _next = block_a, Important_Seq_group_num = imp_num)
-                        t_a.save()
-                        t_b.save()
-                        id_ = id_ + 1
+    wrp = Work_Result_Putter(worker_id = request.GET.get("worker_id"), subject_time_block = subject_text, important_blocks_position = imp_group_num)
+    if imp_group_num is not -1:
+        wrp.certainty_score = 1
+    wrp.save()
+    #vote_group = Time_Block_Position_Vote.objects.filter(time_block = subject_text, Important_Seq_group_num = imp_group_num)
 
     data={
 
@@ -392,6 +361,7 @@ def extract_important_blocks(novel):
         dic['summary'] = important_block.Time_Block_Summary
         dic['full_text'] = important_block.Time_Block_Full_Text
         dic['important_seq'] = important_block.Important_Seq
+        dic['id'] = important_block._id
         dicts.append(dic)
 
     return dicts

@@ -65,6 +65,14 @@ class Work_Result_Brute(models.Model):
     def __str__(self):
         return self.work_description
 
+class Work_Result_Putter(models.Model):
+    worker_id = models.TextField(max_length=1000, default="")
+    subject_time_block = models.ForeignKey(Time_Block, null=True, on_delete = models.SET_NULL, related_name='work_result_putter')
+    important_blocks_position = models.IntegerField(default = -1)
+    certainty_score = models.IntegerField(default = -1)
+    def __str__(self):
+        return str(self.subject_time_block._id)+" in "+str(self.important_blocks_position)
+
 class UnDef_Work_Result_Putter(models.Model):
     worker_id = models.TextField(max_length=1000, default="")
     work_description = models.TextField(max_length=1000, default="")

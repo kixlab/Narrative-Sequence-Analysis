@@ -21,12 +21,16 @@ a:hover{
 ::selection{
   background-color: #eeeeee;
 }
-#title{
+.title{
   font-weight: bold;
   font-size: 20px;
 }
 #top_pane{
-  height: 70%;
+  height: 30%;
+  border: 1px solid black;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 2%;
 }
 #bottom_pane{
   padding: 2%;
@@ -34,32 +38,31 @@ a:hover{
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-top: 1px solid transparent;
-  height: 30%;
+
 }
 #total_container{
   padding-top : 2%;
-  height: 90%;
+
 }
 #novel_box{
   padding: 2%;
-  height: 100%;
-  border: solid 1px black;
-  border-right: solid 1px transparent;
-  border-top-left-radius: 10px;
+
+
+  border-left: solid 1px black;
+
 
 }
 #time_line{
-  background-color: #eeeeff;
+
   position: relative;
   padding: 2%;
-  height: 100%;
-  border: solid 1px black;
-  border-top-right-radius: 10px;
+
+
   overflow-y: scroll;
 }
 #novel_text{
     overflow-y: scroll;
-    border: solid 1px black;
+    border: solid 2px black;
     padding: 2px;
 }
 #tb{
@@ -68,8 +71,10 @@ a:hover{
 
 }
 #summary_pane{
+  padding: 2px;
   position: relative;
   overflow-y: scroll;
+  border: solid 2px black;
 }
 #tl{
   position: relative;
@@ -140,25 +145,19 @@ div{
 }
 
 
-#tutorial{
-  visibility: hidden;
-  background-color: white;
-  border: solid 1px black;
-  position: fixed;
-  width: 96%; /* Full width (cover the whole page) */
-    height: 60%; /* Full height (cover the whole page) */
-    top: 3%;
-    left: 2%;
-    padding: 5%;
- /* Black background with opacity */
-    z-index: 12; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+.ui-dialog-titlebar-close {
+    visibility: hidden;
 }
 #show_tuto{
   margin-top: 5px;
   float: right;
 }
 .important{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.subject_seq{
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
@@ -186,5 +185,14 @@ div{
   overflow-y: scroll;
 }
 #subject_title{
-  font-weight: bold;
+
+}
+#subject_text{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding : 5px;
+  background-color: #eeffee;
+}
+#subject_content{
+  overflow-y: scroll;
 }
