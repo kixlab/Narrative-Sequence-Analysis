@@ -4,7 +4,7 @@ import math
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.db.models import Sum, Max, Min, Count
 from .models import Novel, Meta_Novel_Sequence, Time_Block, Time_Block_Position_Vote, Time_Block_Pairwise_Comparison, Brute_Time_Block_Pairwise_Comparison, Work_Result_Brute, Def_Work_Result_Putter, UnDef_Work_Result_Putter
-from .models import Work_Result_Putter
+from .models import Work_Result_Putter, Work_Result_Flag
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import random
@@ -208,22 +208,29 @@ def putter_return_data(request):
     return JsonResponse(data)
 
 def flag_comparison_return_data(request):
-    imp_id = request.GET.get("imp_id")
-    comp_id = request.GET.get("comp_id")
+    worker_id = request.GET.get("worker_id")
+    prev_id = int(request.GET.get("prev_id"))
+    print(prev_id)
+    print(type(prev_id))
+    next_id = int(request.GET.get("next_id"))
+    imp_id = int(request.GET.get("imp_id"))
+    comp_id = int(request.GET.get("comp_id"))
+    comp_result = int(request.GET.get("comp_result"))
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
     first_block = request.GET.get("first_block")
-    f_b = Time_Block.objects.filter(Time_Block_Full_Text = first_block, Novel = novel)
-    if f_b.count() is 0:
-        comp_sets = Time_Block_Pairwise_Comparison.objects.filter(Important_Seq_group_num = imp_id, _id = comp_id, Novel=novel)
-        for comp_set in comp_sets:
-            comp_set.not_sure = comp_set.not_sure + 1
-            comp_set.save()
+    time_block_pairwise_comparison = Time_Block_Pairwise_Comparison.objects.get(Novel = novel, Important_Seq_group_num= imp_id, _id = comp_id)
+    time_block_pairwise_comparison.vote_number = time_block_pairwise_comparison.vote_number + 1
+    if comp_result is -1:
+        prev_block = Time_Block.objects.get(Novel = novel, _id = prev_id)
+        next_block = Time_Block.objects.get(Novel = novel, _id = next_id)
+        work_result_flag = Work_Result_Flag(worker_id = worker_id, _prev = prev_block, _next = next_block, important_blocks_position = imp_id, certainty_score = -1)
     else:
-        TBC = Time_Block_Pairwise_Comparison.objects.get(Important_Seq_group_num = imp_id, _id = comp_id, Novel = novel, _prev = f_b)
-        TBC.vote=TBC.vote+1
-        TBC.save()
-        print("horay!")
+        prev_block = Time_Block.objects.get(Novel = novel, _id = prev_id)
+        next_block = Time_Block.objects.get(Novel = novel, _id = next_id)
+        work_result_flag = Work_Result_Flag(worker_id = worker_id, _prev = prev_block, _next = next_block, important_blocks_position = imp_id, certainty_score = 1)
+    work_result_flag.save()
+    time_block_pairwise_comparison.save()
     data={
 
     }
@@ -256,38 +263,67 @@ def brute_comparison_return_data(request):
 
     }
     return JsonResponse(data)
+def generate_trivial_event_position(novel):
+    trivial_time_blocks = Time_Block.objects.filter(Novel = novel, Important_Seq_group_num__lt =0)
+    #get possible combinations
+    block_group = {}
+    for trivial_time_block in trivial_time_blocks:
+        print(trivial_time_block)
+        trivial_time_result = trivial_time_block.work_result_putter.values('important_blocks_position').annotate(vote_count=Count('important_blocks_position'))
+        max_vote_count = trivial_time_result.aggregate(max_vote_count = Max('vote_count'))['max_vote_count']
+        #trivial_time_block = trivial_time_block.filter(vote_count = Max('vote_count'))
+        position = trivial_time_result.filter(vote_count = max_vote_count)[0]['important_blocks_position']
+        if str(position) not in block_group:
+            block_group[str(position)] = []
+        block_group[str(position)].append(trivial_time_block)
+    print(block_group)
+    for group in block_group:
+        block_list = block_group[group]
+        _id = 0
+        for i in range(0, len(block_list)):
+            for j in range(i+1, len(block_list)):
+                print(i)
+                tbpc = Time_Block_Pairwise_Comparison(Novel = novel, block_a = block_list[i], block_b = block_list[j], Important_Seq_group_num = int(group), _id = _id)
+                tbpc.save()
+                _id = _id+1
+
 
 def retrieve_important_event_in_same_group(request):
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
     dicts = extract_important_blocks(novel)
-    comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
-    comparison_sets = comparison_sets.values('Important_Seq_group_num', '_id').annotate(id_vote = Sum('vote')+Max('not_sure')).filter(id_vote__lt= 3).order_by('id_vote')
+    if Time_Block_Pairwise_Comparison.objects.filter(Novel = novel).count() is 0:
+        generate_trivial_event_position(novel)
+    #get least votes # of those combinations
+    #Time_Block_Pairwise_Comparison.annotate(vote_sum = Sum('block_a_first', 'block_b_first', ''))
+    #get blocks of that comb
+    #get least votes # of those combinations
+    comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel).order_by('vote_number')
+    min_count = comparison_sets.aggregate(Min('vote_number'))['vote_number__min']
+    rand_id = random.randrange(0, comparison_sets.filter(vote_number = min_count).count())
+    comparison_set = comparison_sets[rand_id]
     print(comparison_sets)
-    rand_id = random.randrange(0,comparison_sets.count())
-    if comparison_sets[rand_id]['id_vote'] < 3:
-        comparison_set_id=comparison_sets[rand_id]['_id']
-    imp_id = comparison_sets[comparison_set_id]['Important_Seq_group_num']
-    print(comparison_set_id)
-    comparison_set = Time_Block_Pairwise_Comparison.objects.filter(Novel=novel, _id = comparison_set_id, Important_Seq_group_num=imp_id)[0]
+    print(comparison_sets.filter(vote_number = min_count).count())
+    print(rand_id)
     print(comparison_set)
     dict1={
-        'summary' : comparison_set._prev.Time_Block_Summary,
-        'full_text' : comparison_set._prev.Time_Block_Full_Text,
-        'id' : comparison_set._prev._id
+        'summary' : comparison_set.block_a.Time_Block_Summary,
+        'full_text' : comparison_set.block_a.Time_Block_Full_Text,
+        'id' : comparison_set.block_a._id
     }
     dict2={
-        'summary' : comparison_set._next.Time_Block_Summary,
-        'full_text' : comparison_set._next.Time_Block_Full_Text,
-        'id' : comparison_set._next._id
+        'summary' : comparison_set.block_b.Time_Block_Summary,
+        'full_text' : comparison_set.block_b.Time_Block_Full_Text,
+        'id' : comparison_set.block_b._id
     }
     data={
+        'total_time_block_num' : Time_Block.objects.filter(Novel = novel).count(),
         "novel_name" : novel.Novel_title,
         'important_blocks': json.dumps(dicts),
         'text_a' : json.dumps(dict1),
         'text_b' : json.dumps(dict2),
         'imp_id' : comparison_set.Important_Seq_group_num,
-        'comp_id' : comparison_set_id,
+        'comp_id' : comparison_set._id,
     }
     return JsonResponse(data)
 

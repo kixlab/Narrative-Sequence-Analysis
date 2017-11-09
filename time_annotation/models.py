@@ -40,10 +40,9 @@ class Time_Block_Position_Vote(models.Model):
         return self.time_block.Time_Block_Summary+"_"+str(self.Important_Seq_group_num)
 class Time_Block_Pairwise_Comparison(models.Model):
     Novel = models.ForeignKey(Novel, null=True, on_delete=models.SET_NULL)
-    _prev = models.ForeignKey(Time_Block, null = True, on_delete = models.SET_NULL, related_name= 'prev')
-    _next = models.ForeignKey(Time_Block, null = True, on_delete = models.SET_NULL, related_name= 'next')
-    vote = models.IntegerField(default = 0)
-    not_sure = models.IntegerField(default = 0)
+    block_a = models.ForeignKey(Time_Block, null = True, on_delete = models.SET_NULL, related_name= 'prev')
+    block_b = models.ForeignKey(Time_Block, null = True, on_delete = models.SET_NULL, related_name= 'next')
+    vote_number = models.IntegerField(default = 0)
     Important_Seq_group_num = models.IntegerField(default=-1)
     _id = models.IntegerField(default = 0)
     def __str__(self):
@@ -88,6 +87,12 @@ class Def_Work_Result_Putter(models.Model):
 
 class Work_Result_Flag(models.Model):
     worker_id = models.TextField(max_length=1000, default="")
-    work_description = models.TextField(max_length=1000, default="")
+    _prev = models.ForeignKey(Time_Block, null = True, on_delete = models.SET_NULL, related_name = 'prev_flag')
+    _next = models.ForeignKey(Time_Block, null = True, on_delete = models.SET_NULL, related_name = 'next_flag')
+    important_blocks_position = models.IntegerField(default=-1)
+    certainty_score = models.IntegerField(default = -1)
     def __str__(self):
-        return self.work_description
+        if self.certainty_score is -1:
+            return "not sure btw "+str(self._prev._id)+" and "+str(self._next._id)
+        else:
+            return str(self._prev._id)+" comes before "+str(self._next._id)

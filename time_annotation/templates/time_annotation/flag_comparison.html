@@ -2,68 +2,77 @@
 <html>
   <head>
     {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/flag_comparison.css' %}" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/jquery-ui.css' %}" />
+    <script type="text/javascript" src="{% static 'time_annotation/jquery.js' %}" /></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{% static 'time_annotation/flag_comparison.js' %}" /></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="{% static 'time_annotation/jquery-ui.js' %}" /></script>
   </head>
   <body>
-    <div id="tutorial"><div>
-    </div><button id="tuto_close">Close</button></div>
-    <div id="overlay" class="overlay"></div>
+    <div id="tutorial"><div id="tuto_text"></div></div>
+
     <!--<div id="overlay_trans" class="overlay"></div>-->
     <div id = "total_container" class="container-fluid">
-      <div id="top_pane">
-      <div id = "novel_box" class = "col-xs-8">
-        <div id = "title"></div>
+      <div id="top_pane" class = "col-xs-12">
+        <div id="subject_title"><p><font size="5"><b>Among two events, which snippet of event should have happened first?</b></font></p>
+          <button data-toggle="collapse" data-target="#tt" type="button">How to do the task.</button>
+          <div id="tt" class="collapse"><p><b>Bottom left</b> shows the original sequence of 'some' events from a movie. <b>(beginning of a movie --> end of a movie)</b></p>
+        <p><b>Bottom right</b> is a timeline of 'those' events in the movie, listed in time order, in the order events actually happened. <b>(past-->future)</b></p>
+      <p>You will read summaries of events in <b>green and yellow box</b>, but do not know which <b>happened first</b> in <b>time order</b></p>
+      <p>You know when they happened approximately, according to timeline, but not exactly.</p>
+      <p>You should think hard and come up with which event might happen first.</b>
+      <p>Rather than believing in your gut feeling, it is useful to use some <b>'irreversible clues' or details</b> (ex. death of a character).</p>
+    <p>Think deep, and return your answer when you are sure. If you are not sure with answer, <b>you can choose an option that you are not sure.</b></p>
+  </div> </div>
+      <div id="subject_content" class= "row">
+        <div id="subject_content_a" class= "subject_content col-xs-6">
+          <div class="comp_box">
+          <input type='radio' value='0' name='comp' id='comp_check_0' class="comp_check"> <b>This event happened first.</b> </input>
+        </div>
+          <div class="subject_buttons">
+            <button id="summary_button_a">Summary</button>
+            <button id="full_text_button_a" class="full_text_button">Full Text</button>
+          </div>
+          <div id="subject_text_a" class="subject_text"></div>
+        </div>
+        <div id="subject_content_b" class= "subject_content col-xs-6">
+          <div class="comp_box">
+          <input type='radio' value='1' name='comp' id='comp_check_1' class='comp_check'> <b>This event happened first.</b> </input>
+        </div>
+          <div class="subject_buttons">
+            <button id="summary_button_b">Summary</button>
+            <button id="full_text_button_b" class="full_text_button">Full Text</button>
+          </div>
+          <div id="subject_text_b" class="subject_text"></div>
+        </div>
+      </div>
+      <div class="comp_box">
+        <input type='radio' value='-1' name='comp' id='comp_check_-1' class="comp_check"> <b>I am not sure with what happened first...</b> </input>
+      </div>
+      </div>
+      <div id="bottom_pane">
+        <div id= "time_line" class = "col-xs-6">
+          <div id = "seq_title" class="title"></div>
+          <div id="summary_pane">
+          <div id="tl"></div>
+        </div>
+      </div>
+      <div id = "novel_box" class = "col-xs-6">
+        <div id = "title" class="title"></div>
         <div id="novel_text">
           <div id="tb"></div>
         </div>
-      </div>
-      <div id= "time_line" class = " col-xs-4">
-        <div id = "sum_title">Full text of the mouseovered part</div>
-        <div id="summary_pane">
-        <div id="tl"></div>
-      </div>
-    </div>
-  </div>
-  <div id="bottom_pane" class = "col-xs-12">
-    <div id="subject_title">Following two are snippets of a story. Referring to the timeline above, and where snippets belong to, Guess which snippet would have happened earlier.</div>
-    <div id="subject_content" class='row'>
-      <div id="subject_text_box_1" class="col-xs-6 subject_text_box">
-        <div id="subject_buttons_1" class="subject_buttons">
-          <input id='subject_radio_1' type='radio' name='sequence'> This snippet might have happened earlier </input>
-          <div>
-            <button id="summary_button_1">Summary</button>
-            <button id="full_text_button_1">Full Text</button>
-          </div>
-        </div>
-        <div id="subject_text_1">
-      </div>
-    </div>
-      <div id="subject_text_box_2" class="col-xs-6 subject_text_box">
-        <div id="subject_buttons_2" class="subject_buttons">
-          <input id='subject_radio_2' type='radio' name='sequence'> This snippet might have happened earlier </input>
-          <div>
-            <button id="summary_button_2">Summary</button>
-            <button id="full_text_button_2">Full Text</button>
-          </div>
-        </div>
-        <div id="subject_text_2">
+        <div id="novel_bottom"></div>
       </div>
 
-      </div>
-    </div>
-    <div>
-      <input type='radio' name='sequence' val="not_sure"> Not sure </input>
-    </div>
   </div>
+
     </div>
     <div class="col-xs-12">
     <button id="submit">Submit</button>
-    <!--<button id="show_tuto">See Tutorial</button>-->
+    <button id="show_tuto">See Tutorial</button>
   </div>
   </body>
 </html>
