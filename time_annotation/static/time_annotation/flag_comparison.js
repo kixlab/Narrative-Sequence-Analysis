@@ -14,7 +14,7 @@ var worker_id = Math.random().toString(36).substring(7);
 var text_title ="Old Boy"
 var explanations =["<b>Bottom left</b> shows the original sequence of 'some' events from a movie. <b>(beginning of a movie --> end of a movie)</b>",
   "<b>Bottom right</b> is a timeline of 'some' events in the bottom left, listed in time order, in the order events actually happened. <b>(past-->future)</b>",
-  "You will read summaries of events in <b>green and yellow box</b>, which are in the bottom left, but not in bottom right",
+  "You will read summaries of events in <b>green and yellow box</b>, which are in the bottom left, but not in bottom right(timeline)",
   "You do not know, among two events, which <b>happened first</b> in <b>time order</b>",
   "You know when they happened approximately, according to timeline, but not exactly.",
   "You should read through the sequence and the timeline. After, think and come up with which event might have happened first.",

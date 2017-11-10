@@ -298,9 +298,11 @@ def retrieve_important_event_in_same_group(request):
     #Time_Block_Pairwise_Comparison.annotate(vote_sum = Sum('block_a_first', 'block_b_first', ''))
     #get blocks of that comb
     #get least votes # of those combinations
-    comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel).order_by('vote_number')
+    comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel).filter(vote_number__lt=5).order_by('vote_number')
+    if comparison_sets.count() is 0:
+        comparison_sets = Time_Block_Pairwise_Comparison.objects.filter(Novel = novel)
     min_count = comparison_sets.aggregate(Min('vote_number'))['vote_number__min']
-    rand_id = random.randrange(0, comparison_sets.filter(vote_number = min_count).count())
+    rand_id = random.randrange(0, comparison_sets.count())#comparison_sets.filter(vote_number = min_count).count())
     comparison_set = comparison_sets[rand_id]
     print(comparison_sets)
     print(comparison_sets.filter(vote_number = min_count).count())
