@@ -289,8 +289,12 @@ def generate_trivial_event_position(novel):
 
 
 def retrieve_important_event_in_same_group(request):
+
     text_name = request.GET.get("text_name")
     novel = Novel.objects.get(Novel_title = text_name)
+
+    align_flag_events(novel)
+
     dicts = extract_important_blocks(novel)
     if Time_Block_Pairwise_Comparison.objects.filter(Novel = novel).count() is 0:
         generate_trivial_event_position(novel)
@@ -414,3 +418,22 @@ def align_brute_events():
         ratio.append(t[i]['vote__sum']/(t[i]['vote__sum']+tt[i]['tot']))
     print(ratio)
     print("--------------")
+
+def align_flag_events(novel):
+    t = Work_Result_Flag.objects.values('important_blocks_position').values('_prev___id', '_next___id').annotate(Count('_prev'))
+    tt = Work_Result_Flag.objects.values('important_blocks_position').values('_next___id').annotate(Count('_next'))
+    ratio={}
+    for i in range(0,len(t)):
+        t[i]['diff'] = t[i]['_prev__count'] - t.get(_prev___id = t[i]['_next___id'],_next___id = t[i]['_prev___id'])['_prev__count']
+        t[i]['prev_ratio'] = t[i]['_prev__count']/(t[i]['_prev__count']+t.get(_prev___id = t[i]['_next___id'],_next___id = t[i]['_prev___id'])['_prev__count'])
+        if t[i]['_prev___id'] not in ratio:
+            ratio[t[i]['_prev___id']] = {
+            'val' : 0,
+            'count' : 0,
+            }
+        ratio[t[i]['_prev___id']]['val'] = ratio[t[i]['_prev___id']]['val'] + t[i]['prev_ratio']
+        ratio[t[i]['_prev___id']]['count'] = ratio[t[i]['_prev___id']]['count']+1
+    print(t)
+    for i in ratio.keys():
+        ratio[i]['val'] = ratio[i]['val']/ratio[i]['count']
+    print(ratio)

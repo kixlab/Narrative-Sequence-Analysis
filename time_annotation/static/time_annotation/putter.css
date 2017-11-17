@@ -185,7 +185,8 @@ div{
   overflow-y: scroll;
 }
 #subject_title{
-
+  margin-bottom: 10px;
+  border-bottom: solid 1px black;
 }
 #subject_text{
   border: 1px solid black;

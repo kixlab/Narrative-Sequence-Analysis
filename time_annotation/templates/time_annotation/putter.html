@@ -2,10 +2,11 @@
 <html>
   <head>
     {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/putter.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/jquery-ui.css' %}" />
     <script type="text/javascript" src="{% static 'time_annotation/jquery.js' %}" /></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{% static 'time_annotation/putter.js' %}" /></script>
     <script type="text/javascript" src="{% static 'time_annotation/jquery-ui.js' %}" /></script>
   </head>
@@ -15,12 +16,9 @@
     <!--<div id="overlay_trans" class="overlay"></div>-->
     <div id = "total_container" class="container-fluid">
       <div id="top_pane" class = "col-xs-12">
-        <div id="subject_title"><p><font size="5"><b>Where should below snippet be placed in the bottom-right timeline?</b></font></p>
-        <p><b>Bottom left</b> shows the original sequence of 'some' events from a movie. <b>(beginning of a movie --> end of a movie)</b></p>
-        <p><b>Bottom right</b> is a timeline of 'those' events in the movie, listed in time order, in the order events actually happened. <b>(past-->future)</b></p>
-      <p>See the summary of an event in <b>green box</b>, and <b>put it</b> in <b>the proper time of the timeline</b>, one of positions in <b>the bottom right.</b></p>
-      <p>Rather than believing in your gut feeling, it is useful to use some <b>'irreversible clues' or details</b> (ex. death of a character).</p>
-    <p>Think deep, and return your answer when you are sure. If you are not sure with answer, <b>you can choose an option that you are not sure.</b></p> </div>
+        <div id="subject_title"><p><font size="5"><b>Where should below snippet be placed in the bottom-right time order?</b></font></p>
+          <button data-toggle="collapse" data-target="#tt" type="button">How to do the task.</button>
+          <div id="tt" class="collapse"></div> </div>
         <div id="subject_content">
           <div id="subject_buttons">
             <button id="summary_button">Summary</button>
@@ -48,7 +46,7 @@
 
     </div>
     <div class="col-xs-12">
-    <button id="submit">Submit</button>
+    <button id="submit" class='btn btn-success btn-lg btn-block'>Submit</button>
     <button id="show_tuto">See Tutorial</button>
   </div>
   </body>

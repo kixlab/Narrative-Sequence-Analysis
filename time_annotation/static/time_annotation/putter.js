@@ -11,9 +11,9 @@ var prev_mouse_pos;
 var worker_id = Math.random().toString(36).substring(7);
 var text_title ="Old Boy"
 var explanations =["<b>Bottom left</b> shows the original sequence of 'some' events from a movie. <b>(beginning of a movie --> end of a movie)</b>",
-  "<b>Bottom right</b> is a timeline of 'those' events in the movie, listed in time order, in the order events actually happened. <b>(past-->future)</b>",
-  "See the summary of an event in <b>green box</b> which is also in bottom left, but not in bottom right....",
-  "and <b>put it</b> in <b>the proper time of the timeline</b>, one of positions in <b>the bottom right.</b>",
+  "<b>Bottom right</b> is a time order of 'those' events in the movie, which is in the sequence of how events actually happened. <b>(past-->future)</b>",
+  "See the summary of an event in <b>green box</b> which is also included in the original sequence(bottom left), but not in the time order(bottom right)....",
+  "and <b>put it</b> in <b>the proper moment in the time order</b>, one of positions in <b>the bottom right.</b>",
   "Rather than believing in your gut feeling, it is useful to use some <b>'irreversible clues' or details</b> (ex. death of a character).",
 "<b>Spend enough time in deducing</b>, and return your answer when you are <b>sure</b>. If you are not sure with answer, <b>you can choose an option that you are not sure.</b>"]
 var tuto_pos = ["#time_line", "#novel_box", "#subject_text", "#novel_box", "#novel_box", "#sel_box_not_sure"]
@@ -30,7 +30,7 @@ $(document).ready(function(){
     if($('input[name=group]:checked').val() != null){
       if(confirm("Submit your work?")){
         console.log("return data");
-        return_data();
+        //return_data();
         alert("Thank you for participating!")
         $("body").empty().append("<div>Your Worker ID</div><div>"+worker_id+"</div>")
       }
@@ -51,12 +51,15 @@ load_text = function(){
     },
     dataType: 'json',
     success: function(data){
+      for(var i=0; i<explanations.length; i++){
+        $("#tt").append("<p>"+explanations[i]+"</p>")
+      }
       total_time_block_num = data.total_time_block_num;
       for(var i=0; i<total_time_block_num; i++){
         $("#summary_pane").append("<div id='seq_"+i.toString()+"' class='important'></div>")
       }
       $("#seq_title").text(data.novel_name+" - Original Sequence in Movie. (top:appear first in the movie / bottom:appear later in the movie)")
-      $("#title").text(data.novel_name+" - Timeline. (top:earlier / bottom:later)");
+      $("#title").text(data.novel_name+" - Time Order. (top:earlier / bottom:later)");
       important_blocks = JSON.parse(data.important_blocks);
       subject_block = JSON.parse(data.subject_block);
       console.log(important_blocks)
