@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^step1/$', views.step1, name='step1'),
     url(r'^step2/$', views.step2, name='step2'),
     url(r'^putter/$', views.putter, name='putter'),
+    url(r'^putter_tutorial/$', views.putter_tutorial, name='putter_tutorial'),
     url(r'^flag_comparison/$', views.flag_comparison, name='flag_comparison'),
     url(r'^brute_comparison/$', views.brute_comparison, name='brute_comparison'),
     url(r'^putter_return_data/$', views.putter_return_data, name='putter_return_data'),

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/putter.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/jquery-ui.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="{% static 'time_annotation/putter.js' %}" /></script>
+    <script type="text/javascript" src="{% static 'time_annotation/jquery-ui.js' %}" /></script>
+  </head>
+  <body class="" style="height : 100%; width: 100%;">
+    <header class="navbar navbar-expand navbar-dark d-flex flex-md-row bd-navbar d-flex aligh-items-start" style="background-color: #0e2447; position: sticky; top: 0; z-index:1000;">
+      <div id="Left_Title"></div>
+      <div class="navbar-nav btn-group align-self-center ml-auto">
+        <button id="prev" class="btn btn-secondary col-6">Prev</button>
+        <button id="next" class="btn btn-secondary col-6">Next</button>
+      </div>
+    </header>
+    <div class="" style="width: 100%; overflow: scroll;">
+      <div id="summary_pane" class="col-12" style="padding: 10px;overflow-y: scroll;">
+
+      </div>
+    </div>
+  </body>
+</html>

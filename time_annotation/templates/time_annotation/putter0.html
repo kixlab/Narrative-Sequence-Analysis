@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'time_annotation/putter.css' %}" />-->
+    <link rel="stylesheet" type="text/css" href="{% static 'time_annotation/jquery-ui.css' %}" />
+    <script type="text/javascript" src="{% static 'time_annotation/jquery.js' %}" /></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="{% static 'time_annotation/putter.js' %}" /></script>-->
+    <script type="text/javascript" src="{% static 'time_annotation/jquery-ui.js' %}" /></script>
+  </head>
+  <body>
+    <div id="tutorial"><div id="tuto_text"></div></div>
+
+    <!--<div id="overlay_trans" class="overlay"></div>-->
+    <div id = "total_container" class="container-fluid">
+      <div id="top_pane" class = "col-xs-12">
+        <div id="subject_title"><p><font size="5"><b>Where should below snippet be placed in the bottom-right time order?</b></font></p>
+          <button data-toggle="collapse" data-target="#tt" type="button">How to do the task.</button>
+          <div id="tt" class="collapse"></div> </div>
+        <div id="subject_content">
+          <div id="subject_buttons">
+            <button id="summary_button">Summary</button>
+            <button id="full_text_button">Full Text</button>
+          </div>
+          <div id="subject_text"></div>
+        </div>
+      </div>
+      <div id="bottom_pane">
+        <div id= "time_line" class = "col-xs-6">
+          <div id = "seq_title" class="title"></div>
+          <div id="summary_pane">
+          <div id="tl"></div>
+        </div>
+      </div>
+      <div id = "novel_box" class = "col-xs-6">
+        <div id = "title" class="title"></div>
+        <div id="novel_text">
+          <div id="tb"></div>
+        </div>
+        <div id="novel_bottom"></div>
+      </div>
+
+  </div>
+
+    </div>
+    <div class="col-xs-12">
+    <button id="submit" class='btn btn-success btn-lg btn-block'>Submit</button>
+    <button id="show_tuto">See Tutorial</button>
+  </div>
+  </body>
+</html>

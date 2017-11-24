@@ -21,6 +21,9 @@ def request(request):
 def putter(request):
     return render(request, 'time_annotation/putter.html', {})
 
+def putter_tutorial(request):
+    return render(request, 'time_annotation/putter_tutorial.html', {})
+
 def flag_comparison(request):
     return render(request, 'time_annotation/flag_comparison.html', {})
 

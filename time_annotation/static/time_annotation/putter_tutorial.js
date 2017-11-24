@@ -10,21 +10,19 @@ var tuto_seq = 1;
 var prev_mouse_pos;
 var worker_id = Math.random().toString(36).substring(7);
 var text_title ="Old Boy"
-var explanations =["You will read some parts of a story, which are thought to be important.",
-"You will also read a snippet of story. You need to decide chronologically when this event happens in the story.",
-"You can read those events aligned in original story sequence,",
+var explanations =["You will read extracted important events of a story",
+"They are aligned in original story sequence,",
 "Or aligned in chronological sequence.",
-"You can change choose how to read them by clicking switch button.",
-
-"You can decide when the target event happens in the chronological timeline by clicking on one of these places",
-"After making a decision, submit it with the submit button. Let's proceed to the task!"]
+"You can change how you are seeing events by clicking switching button.",
+"You need to decide when this event happened, in chronological sequence",
+"You can decide it by clicking on one of places",
+"After you are done, submit it with the submit button."]
 var tuto_pos = [{my:"center center", at:"center center", of:"body"},
-   {my:"left bottom", at:"left top", of:"#subject_seq"},
-  {my:"center top", at:"center top", of:"#summary_pane"},
+  {my:"center center", at:"center center", of:"#summary_pane"},
    {my:"right top", at:"left top", of:"#sequential_pane"},
    {my:"right top", at:"left top", of:"#switch"},
-
-   {my:"right top", at:"left top", of:"#sequential_pane"},
+   {my:"left bottom", at:"left top", of:"#subject_seq"},
+   {my:"right center", at:"left center", of:"#sequential_pane"},
    {my:"right top", at:"left top", of:"#submit"}]
 var cur_tuto =0;
 var initiation = false;
@@ -43,48 +41,45 @@ $(document).ready(function(){
   $("#switch").on("click", function(){
     Switch_Pane();
   })
+  $("#submit").on("click", function(){
+    console.log($('input[name=group]:checked').val())
+    if($('input[name=group]:checked').val() != null){
+      if(confirm("Submit your work?")){
+        console.log("return data");
+        //return_data();
+        alert("Thank you for participating!")
+      //  $("body").empty().append("<div>Your Worker ID</div><div>"+worker_id+"</div>")
+      }
+    }else{
+      alert("Cannot submit because you did not specify answer")
 
+    }
+  })
   });
 
-submit_button_click= function(){
-  console.log($('input[name=group]:checked').val())
-  if($('input[name=group]:checked').val() != null){
-    if(confirm("Submit your work?")){
-      console.log("return data");
-      //return_data();
-      alert("Thank you for participating!")
-      $("body").empty().append("<div>Your Worker ID</div><div>"+worker_id+"</div>")
-    }
-  }else{
-    alert("Cannot submit because you did not specify answer")
-
-  }
-}
 
 load_text = function(){
-  $.ajax({
-    url: '/time_annotation/retrieve_important_event',
-    data:{
-      "text_name": text_title,
-      //"text_id" : 27,
-    },
-    dataType: 'json',
-    success: function(data){
-      important_blocks = JSON.parse(data.important_blocks);
-      subject_block = JSON.parse(data.subject_block);
+
+      important_blocks = [{
+        'id': 0,
+        'summary' :'A man is feeling hunger.'
+      },{
+        'id': 4,
+        'summary' :'So he decides to eat a big meal.'
+      }]//JSON.parse(data.important_blocks);
+      subject_block = {
+        'id':1,
+        'summary': 'It might be because he did exercise harshly.'
+      }//JSON.parse(data.subject_block);
 
       for(var i=0; i<explanations.length; i++){
         $("#tt").append("<p>"+explanations[i]+"</p>")
       }
-      total_time_block_num = data.total_time_block_num;
+      total_time_block_num = 5;
       Original_Sequence();
       //window_resize();
+      tutorial_set();
 
-    },
-    error: function(data){
-
-    }
-  })
 
 }
 
@@ -264,8 +259,6 @@ selection_initiate = function(){
 
     jsPlumb.repaintEverything();
   })
-  jsPlumb.repaintEverything();
-  tutorial_set();
 }
 
 window_resize = function(){
@@ -303,136 +296,61 @@ random_pastel = function(){
 
 
 tutorial_set = function(){
-  $("html").css("overflow", "hidden")
   $("#tutorial").css("position","")
-  $("#submit").off("click").on("click", function(){
-    alert("Complete the tutorial before submitting.")
-  })
-  //$("#submit").css( {"cursor": "default"} );
-
   //$('[data-toggle="popover"]').popover();
   //$("#overlay").css("visibility", "visible")
   //$("#summary_pane").popover()
   //$("#summary_pane").popover("show")
   //$("#sequential_pane").popover().popover("show")
-  //jsPlumb.repaintEverything();
-  cur_tuto =0
-  $("#tutorial_content").text(explanations[cur_tuto])
+  $("#tutorial_content").text(explanations[0])
   var t = $("#tutorial")
-  $("#tutorial").dialog({
-    position: tuto_pos[cur_tuto]
-  })
-  $("#tuto_p").off("click").on("click", function(){
+  $("#tutorial").dialog("destroy").dialog()
+  $("#tuto_p").on("click", function(){
     if(cur_tuto>0){
       cur_tuto=cur_tuto-1;
       tutorial_proceed(t);
     }
   })
-  $("#tuto_n").off("click").on("click", function(){
+  $("#tuto_n").on("click", function(){
     if(cur_tuto<explanations.length-1){
       cur_tuto = cur_tuto+1;
       tutorial_proceed(t);
     }else{
-      $("html").animate({
-        scrollTop: 0
-      }, 1000, function(){
-        //$("#submit").css( {"cursor": "wait"} );
-        t.dialog("close")
-        $("html").css("overflow", "auto")
-        $("#submit").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
-        $("#tutorial_button").on("click", function(){
-          tutorial_set()
-      })
-      $("#submit").off("click").on("click", function(){
-        submit_button_click();
-      })
-      })
+      t.dialog("close")
+      $("#submit").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
+      $("")
     }
   })
 
 }
 tutorial_proceed=function(t){
-  //jsPlumb.repaintEverything();
   $("#tutorial_content").text(explanations[cur_tuto])
-
+  t.dialog({
+    position: tuto_pos[cur_tuto]
+  })
 
   $("#switch").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
   $("#submit").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
-  if(cur_tuto ==3){
+  if(cur_tuto != 0 && cur_tuto !=5 && cur_tuto !=3 && cur_tuto!=6 && cur_tuto!=4){
     //console.log()
     $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
-    t.dialog({
-      position: tuto_pos[cur_tuto],
-      draggable: true,
-    })
-  }else if(cur_tuto==0){
-    t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
-  }else if(cur_tuto ==4){
+  }else if(cur_tuto ==3){
     $("#switch").button()
-    t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
   }else if(cur_tuto == 5){
-    $(".position").effect("highlight", 1000)//.addClass("ui-button").addClass("ui-widget")
-    t.dialog({
-      position: tuto_pos[cur_tuto]
+    $(".position").effect("highlight")
+  }else if(cur_tuto == 4){
+    $("body").animate({
+      scrollTop: $("#subject_seq").offset().top
+    }, 1000, function(){
+      $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
     })
+    //if($("#subject_seq").offset().top)
   }else if(cur_tuto == 6){
     $("#submit").addClass("ui-button").addClass("ui-widget")
-    t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
-  }else if(cur_tuto == 1){
-    $("#tutorial").css("display", "none");
-    console.log($("html").scrollTop())
-    if($("#subject_seq").offset().top-$("#combined_panes").scrollTop()>$(window).height()){
-
-    $("html").animate({
-      scrollTop: $("#subject_seq").offset().top-$("#combined_panes").scrollTop()
-    }, 500, function(){
-      $("#tutorial").css("display", "");
-      t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
-      $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
-    })
-  }else{
-    $("#tutorial").css("display", "");
-    t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
-    $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
   }
-    //if($("#subject_seq").offset().top)
-  }else if(cur_tuto ==2){
-    $("#tutorial").css("display", "none");
-    console.log($("html").scrollTop())
-    if($("html").scrollTop()!=0){
-
-    $("html").animate({
-      scrollTop: 0
-    }, 500, function(){
-      $("#tutorial").css("display", "");
-      t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
-      $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
-    })
-  }else{
-    $("#tutorial").css("display", "");
-    t.dialog({
-      position: tuto_pos[cur_tuto]
-    })
-    $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
-  }
-  }
-
 
 
 }
-
 return_data = function(){
   var work_description = "Worker "+ worker_id + " put "+subject_block.id.toString()+" in "+$('input[name=group]:checked').val()
   $.ajax({
@@ -497,7 +415,9 @@ jsPlumb.bind("ready", function(){
       jsPlumb.repaintEverything();
     }
   }
-
+  window.redraw=function(){
+    jsPlumb.repaintEverything();
+  }
 
 
 })
