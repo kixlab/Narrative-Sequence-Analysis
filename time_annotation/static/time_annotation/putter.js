@@ -105,7 +105,7 @@ Original_Sequence=function(){
   jsPlumb.connect({
     source: $(".subject_seq").attr("id"),
     target: "pos_0",
-    endpoint: ["Dot", {radius: 5}],
+    endpoint: ["Blank", {radius: 5}],
     anchors: ["RightMiddle", "LeftMiddle"],
     connector:["Bezier", {curviness: 10}]
   })
@@ -119,7 +119,7 @@ Original_Sequence=function(){
     jsPlumb.connect({
       source: $(".subject_seq").attr("id"),
       target: "pos_"+(i+1).toString(),
-      endpoint: ["Dot", {radius: 5}],
+      endpoint: ["Blank", {radius: 5}],
       anchors: ["RightMiddle", "LeftMiddle"],
       connector:["Bezier", {curviness: 10}]
     })
@@ -134,7 +134,7 @@ Original_Sequence=function(){
   $("#summary_pane").width(function(){
     return $(this).width();
   })
-  $("#sequential_pane").width(function(){
+  $("#sequential_pane").css("color", "transparent").width(function(){
     return $(this).width();
   })
   $(".subject_seq").height(function(){
@@ -164,6 +164,8 @@ Switch_Pane=function(){
     long_pane_id="#summary_pane";
   }
   console.log(long_pane_id)
+  $(long_pane_id).css("color", "transparent")
+  $(short_pane_id).css("color", "black")
   if(long_pane_id=="#sequential_pane"){
     $("#original_title").css("font-size", "12pt");
     $("#chronological_title").css("font-size", "7pt");
@@ -317,6 +319,7 @@ tutorial_set = function(){
   //$("#sequential_pane").popover().popover("show")
   //jsPlumb.repaintEverything();
   cur_tuto =0
+  $("#overlay").css("visibility","visible")
   $("#tutorial_content").text(explanations[cur_tuto])
   var t = $("#tutorial")
   $("#tutorial").dialog({
@@ -339,6 +342,7 @@ tutorial_set = function(){
         //$("#submit").css( {"cursor": "wait"} );
         t.dialog("close")
         $("html").css("overflow", "auto")
+        $("#overlay").css("visibility","hidden")
         $("#submit").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
         $("#tutorial_button").on("click", function(){
           tutorial_set()
@@ -353,28 +357,32 @@ tutorial_set = function(){
 }
 tutorial_proceed=function(t){
   //jsPlumb.repaintEverything();
-  $("#tutorial_content").text(explanations[cur_tuto])
+
 
 
   $("#switch").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
   $("#submit").removeClass("ui-corner-all").removeClass("ui-button").removeClass("ui-widget")
   if(cur_tuto ==3){
     //console.log()
+    $("#tutorial_content").text(explanations[cur_tuto])
     $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
     t.dialog({
       position: tuto_pos[cur_tuto],
       draggable: true,
     })
   }else if(cur_tuto==0){
+    $("#tutorial_content").text(explanations[cur_tuto])
     t.dialog({
       position: tuto_pos[cur_tuto]
     })
   }else if(cur_tuto ==4){
+    $("#tutorial_content").text(explanations[cur_tuto])
     $("#switch").button()
     t.dialog({
       position: tuto_pos[cur_tuto]
     })
   }else if(cur_tuto == 5){
+    $("#tutorial_content").text(explanations[cur_tuto])
     $(".position").effect("highlight", 1000)//.addClass("ui-button").addClass("ui-widget")
     t.dialog({
       position: tuto_pos[cur_tuto]
@@ -385,13 +393,14 @@ tutorial_proceed=function(t){
       position: tuto_pos[cur_tuto]
     })
   }else if(cur_tuto == 1){
-    $("#tutorial").css("display", "none");
+  //  $("#tutorial").css("display", "none");
     console.log($("html").scrollTop())
-    if($("#subject_seq").offset().top-$("#combined_panes").scrollTop()>$(window).height()){
+    if($("#subject_seq").offset().top+$("#subject_seq").outerHeight()-$("#combined_panes").scrollTop()>$(window).height()){
 
     $("html").animate({
-      scrollTop: $("#subject_seq").offset().top-$("#combined_panes").scrollTop()
+      scrollTop: $("#subject_seq").offset().top-$("#combined_panes").scrollTop()-$("header").outerHeight()
     }, 500, function(){
+      $("#tutorial_content").text(explanations[cur_tuto])
       $("#tutorial").css("display", "");
       t.dialog({
       position: tuto_pos[cur_tuto]
@@ -399,7 +408,8 @@ tutorial_proceed=function(t){
       $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
     })
   }else{
-    $("#tutorial").css("display", "");
+    $("#tutorial_content").text(explanations[cur_tuto])
+    //$("#tutorial").css("display", "");
     t.dialog({
       position: tuto_pos[cur_tuto]
     })
@@ -407,20 +417,22 @@ tutorial_proceed=function(t){
   }
     //if($("#subject_seq").offset().top)
   }else if(cur_tuto ==2){
-    $("#tutorial").css("display", "none");
+  //  $("#tutorial").css("display", "none");
     console.log($("html").scrollTop())
     if($("html").scrollTop()!=0){
 
     $("html").animate({
       scrollTop: 0
     }, 500, function(){
-      $("#tutorial").css("display", "");
+      $("#tutorial_content").text(explanations[cur_tuto])
+    //  $("#tutorial").css("display", "");
       t.dialog({
       position: tuto_pos[cur_tuto]
     })
       $(tuto_pos[cur_tuto]['of']).effect("highlight", 1000)
     })
   }else{
+    $("#tutorial_content").text(explanations[cur_tuto])
     $("#tutorial").css("display", "");
     t.dialog({
       position: tuto_pos[cur_tuto]
@@ -467,7 +479,7 @@ jsPlumb.bind("ready", function(){
     jsPlumb.connect({
       source: sum_con,
       target: seq_con,
-      endpoint: ["Dot", {radius: 5}],
+      endpoint: ["Blank", {radius: 5}],
       anchors: ["RightMiddle", "LeftMiddle"],
       connector:["Bezier", {curviness: 10}]
     })
